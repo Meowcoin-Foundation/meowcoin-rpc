@@ -1,4 +1,4 @@
-# Ravencoin remote procedure calls/methods
+# Telestai remote procedure calls/methods
 [Home](README.md)
 &nbsp;<br> &nbsp;<br/>
 ## abandontransaction
@@ -16,7 +16,7 @@ Arguments:
 Result:
 
 Examples:
-> raven-cli abandontransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+> telestai-cli abandontransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abandontransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -28,10 +28,10 @@ Stops current wallet rescan triggered e.g. by an importprivkey call.
 Examples:
 
 Import a private key
-> raven-cli importprivkey "mykey"
+> telestai-cli importprivkey "mykey"
 
 Abort the running wallet rescan
-> raven-cli abortrescan 
+> telestai-cli abortrescan 
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abortrescan", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -41,25 +41,25 @@ As a JSON-RPC call
 &nbsp;<br/>  addmultisigaddress nrequired ["key",...] ( "account" )
 
 Add a nrequired-to-sign multisignature address to the wallet.
-Each key is a Raven address or hex-encoded public key.
+Each key is a Telestai address or hex-encoded public key.
 If 'account' is specified (DEPRECATED), assign address to that account.
 
 Arguments:
 1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.
-2. "keys"         (string, required) A json array of raven addresses or hex-encoded public keys
+2. "keys"         (string, required) A json array of telestai addresses or hex-encoded public keys
      [
-       "address"  (string) raven address or hex-encoded public key
+       "address"  (string) telestai address or hex-encoded public key
        ...,
      ]
 3. "account"      (string, optional) DEPRECATED. An account to assign the addresses to.
 
 Result:
-"address"         (string) A raven address associated with the keys.
+"address"         (string) A telestai address associated with the keys.
 
 Examples:
 
 Add a multisig address from 2 addresses
-> raven-cli addmultisigaddress 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
+> telestai-cli addmultisigaddress 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
 
 As json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -78,7 +78,7 @@ Arguments:
 2. "command"  (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once
 
 Examples:
-> raven-cli addnode "192.168.0.6:8767" "onetry"
+> telestai-cli addnode "192.168.0.6:8767" "onetry"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:8767", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -97,9 +97,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli addtagtoaddress "#TAG" "to_address"
+> telestai-cli addtagtoaddress "#TAG" "to_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addtagtoaddress", "params": ["#TAG" "to_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli addtagtoaddress "#TAG" "to_address" "change_address"
+> telestai-cli addtagtoaddress "#TAG" "to_address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addtagtoaddress", "params": ["#TAG" "to_address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -126,12 +126,12 @@ Arguments:
 1. "destination"   (string) The destination directory or file
 
 Examples:
-> raven-cli backupwallet "backup.dat"
+> telestai-cli backupwallet "backup.dat"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backup.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## bumpfee
-&nbsp;<br/>  bumpfee has been deprecated on the RVN Wallet. 
+&nbsp;<br/>  bumpfee has been deprecated on the TLS Wallet. 
 &nbsp;<br> &nbsp;<br/>
 ## cancelsnapshotrequest
 &nbsp;<br/>  cancelsnapshotrequest "asset_name" block_height
@@ -148,7 +148,7 @@ Result:
 }
 
 Examples:
-> raven-cli cancelsnapshotrequest "TRONCO" 12345
+> telestai-cli cancelsnapshotrequest "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "cancelsnapshotrequest", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -158,14 +158,14 @@ Examples:
 Checks to see if an address has been frozen by the given restricted asset
 
 Arguments:
-1. "address"          (string, required) the RVN address to search
+1. "address"          (string, required) the TLS address to search
 1. "restricted_name"   (string, required) the restricted asset to search
 
 Result:
 "true/false", (boolean) If the address is frozen
 
 Examples:
-> raven-cli checkaddressrestriction "address" "restricted_name"
+> telestai-cli checkaddressrestriction "address" "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkaddressrestriction", "params": ["address" "restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -175,14 +175,14 @@ Examples:
 Checks to see if an address has the given tag
 
 Arguments:
-1. "address"          (string, required) the RVN address to search
+1. "address"          (string, required) the TLS address to search
 1. "tag_name"         (string, required) the tag to search
 
 Result:
 "true/false", (boolean) If the address has the tag
 
 Examples:
-> raven-cli checkaddresstag "address" "tag_name"
+> telestai-cli checkaddresstag "address" "tag_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkaddresstag", "params": ["address" "tag_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -198,7 +198,7 @@ Result:
 "true/false", (boolean) If the restricted asset is frozen globally
 
 Examples:
-> raven-cli checkglobalrestriction "restricted_name"
+> telestai-cli checkglobalrestriction "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkglobalrestriction", "params": ["restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -208,7 +208,7 @@ Examples:
 Clear all banned IPs.
 
 Examples:
-> raven-cli clearbanned 
+> telestai-cli clearbanned 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -218,7 +218,7 @@ Examples:
 Removes all transaction from the mempool
 
 Examples:
-> raven-cli clearmempool 
+> telestai-cli clearmempool 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearmempool", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -232,7 +232,7 @@ Result:[
 ]
 
 Examples:
-> raven-cli clearmessages 
+> telestai-cli clearmessages 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearmessages", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -253,7 +253,7 @@ Result:
 "hex"            (string) The hex-encoded raw transaction with signature(s)
 
 Examples:
-> raven-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
+> telestai-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
  
 &nbsp;<br> &nbsp;<br/>
 ## createmultisig
@@ -264,9 +264,9 @@ It returns a json object with the address and redeemScript.
 
 Arguments:
 1. nrequired      (numeric, required) The number of required signatures out of the n keys or addresses.
-2. "keys"       (string, required) A json array of keys which are raven addresses or hex-encoded public keys
+2. "keys"       (string, required) A json array of keys which are telestai addresses or hex-encoded public keys
      [
-       "key"    (string) raven address or hex-encoded public key
+       "key"    (string) telestai address or hex-encoded public key
        ,...
      ]
 
@@ -279,7 +279,7 @@ Result:
 Examples:
 
 Create a multisig address from 2 addresses
-> raven-cli createmultisig 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
+> telestai-cli createmultisig 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createmultisig", "params": [2, "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -290,27 +290,27 @@ As a json rpc call
                      ( locktime ) ( replaceable )
 
 Create a transaction spending the given inputs and creating new outputs.
-Outputs are addresses (paired with a RVN amount, data or object specifying an asset operation) or data.
+Outputs are addresses (paired with a TLS amount, data or object specifying an asset operation) or data.
 Returns hex-encoded raw transaction.
 Note that the transaction's inputs are not signed, and
 it is not stored in the wallet or transmitted to the network.
 
 Paying for Asset Operations:
-  Some operations require an amount of RVN to be sent to a burn address:
+  Some operations require an amount of TLS to be sent to a burn address:
 
     Operation          Amount + Burn Address
     transfer                 0
     transferwithmessage      0
-    issue                  500 to RXissueAssetXXXXXXXXXXXXXXXXXhhZGt
-    issue (subasset)       100 to RXissueSubAssetXXXXXXXXXXXXXWcwhwL
-    issue_unique             5 to RXissueUniqueAssetXXXXXXXXXXWEAe58
-    reissue                100 to RXReissueAssetXXXXXXXXXXXXXXVEFAWu
-    issue_restricted      1500 to RXissueRestrictedXXXXXXXXXXXXzJZ1q
-    reissue_restricted     100 to RXReissueAssetXXXXXXXXXXXXXXVEFAWu
-    issue_qualifier       1000 to RXissueQuaLifierXXXXXXXXXXXXUgEDbC
-    issue_qualifier (sub)  100 to RXissueSubQuaLifierXXXXXXXXXVTzvv5
-    tag_addresses          0.1 to RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya (per address)
-    untag_addresses        0.1 to RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya (per address)
+    issue                  500 to ToissueAssetXXXXXXXXXXXXXXXXZ9zEc4
+    issue (subasset)       100 to ToissueSubAssetXXXXXXXXXXXXXafMr3m
+    issue_unique             5 to ToissueUniqueAssetXXXXXXXXXXSZ94He
+    reissue                100 to ToReissueSubAssetXXXXXXXXXXXZBR9o8
+    issue_restricted      1500 to ToissueRestrictedXXXXXXXXXXXZDsDr5
+    reissue_restricted     100 to ToReissueSubAssetXXXXXXXXXXXZBR9o8
+    issue_qualifier       1000 to ToissueQuaLifierXXXXXXXXXXXXUXG4wz
+    issue_qualifier (sub)  100 to ToissueSubQuaLifierXXXXXXXXXY9SuNQ
+    tag_addresses          0.1 to ToaddBurnTagXXXXXXXXXXXXXXXXW4MmvP (per address)
+    untag_addresses        0.1 to ToaddBurnTagXXXXXXXXXXXXXXXXW4MmvP (per address)
     freeze_addresses         0
     unfreeze_addresses       0
     freeze_asset             0
@@ -352,9 +352,9 @@ Arguments:
      ]
 2. "outputs"                               (object, required) a json object with outputs
      {
-       "address":                          (string, required) The destination raven address.
+       "address":                          (string, required) The destination telestai address.
                                                Each output must have a different address.
-         x.xxx                             (number or string, required) The RVN amount
+         x.xxx                             (number or string, required) The TLS amount
            or
          {                                 (object) A json object of assets to send
            "transfer":
@@ -521,14 +521,14 @@ Result:
 "transaction"              (string) hex string of the transaction
 
 Examples:
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"address\":0.01}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"data\":\"00010203\"}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueAssetXXXXXXXXXXXXXXXXXhhZGt\":500,\"change_address\":change_amount,\"issuer_address\":{\"issue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":1000000,\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueRestrictedXXXXXXXXXXXXzJZ1q\":1500,\"change_address\":change_amount,\"issuer_address\":{\"issue_restricted\":{\"asset_name\":\"$MYASSET\",\"asset_quantity\":1000000,\"verifier_string\":\"#TAG & !KYC\",\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueUniqueAssetXXXXXXXXXXWEAe58\":20,\"change_address\":change_amount,\"issuer_address\":{\"issue_unique\":{\"root_name\":\"MYASSET\",\"asset_tags\":[\"ALPHA\",\"BETA\"],\"ipfs_hashes\":[\"43f81c6f2c0593bde5a85e09ae662816eca80797\",\"43f81c6f2c0593bde5a85e09ae662816eca80797\"]}}}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transfer\":{\"MYASSET\":50}}}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transferwithmessage\":{\"MYASSET\":50,\"message\":\"hash\",\"expire_time\": utc_time}}}"
-> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myownership\",\"vout\":0}]" "{\"issuer_address\":{\"reissue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":2000000}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"address\":0.01}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"data\":\"00010203\"}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueAssetXXXXXXXXXXXXXXXXZ9zEc4\":500,\"change_address\":change_amount,\"issuer_address\":{\"issue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":1000000,\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueRestrictedXXXXXXXXXXXZDsDr5\":1500,\"change_address\":change_amount,\"issuer_address\":{\"issue_restricted\":{\"asset_name\":\"$MYASSET\",\"asset_quantity\":1000000,\"verifier_string\":\"#TAG & !KYC\",\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueUniqueAssetXXXXXXXXXXSZ94He\":20,\"change_address\":change_amount,\"issuer_address\":{\"issue_unique\":{\"root_name\":\"MYASSET\",\"asset_tags\":[\"ALPHA\",\"BETA\"],\"ipfs_hashes\":[\"43f81c6f2c0593bde5a85e09ae662816eca80797\",\"43f81c6f2c0593bde5a85e09ae662816eca80797\"]}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transfer\":{\"MYASSET\":50}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transferwithmessage\":{\"MYASSET\":50,\"message\":\"hash\",\"expire_time\": utc_time}}}"
+> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myownership\",\"vout\":0}]" "{\"issuer_address\":{\"reissue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":2000000}}}"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createrawtransaction", "params": ["[{\"txid\":\"mycoin\",\"vout\":0}]", "{\"data\":\"00010203\"}"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -558,7 +558,7 @@ Result:
 }
 
 Examples:
-> raven-cli decodeblock "xxxx"
+> telestai-cli decodeblock "xxxx"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodeblock", "params": ["xxxx"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -593,7 +593,7 @@ Result:
   ],
   "vout" : [             (array of json objects)
      {
-       "value" : x.xxx,            (numeric) The value in RVN
+       "value" : x.xxx,            (numeric) The value in TLS
        "n" : n,                    (numeric) index
        "scriptPubKey" : {          (json object)
          "asm" : "asm",          (string) the asm
@@ -606,7 +606,7 @@ Result:
            "message" : "message", (string optional) the message if one was sent
            "expire_time" : n,      (numeric optional) the message epoch expiration time if one was set
          "addresses" : [           (json array of string)
-           "12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc"   (string) raven address
+           "12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc"   (string) telestai address
            ,...
          ]
        }
@@ -616,7 +616,7 @@ Result:
 }
 
 Examples:
-> raven-cli decoderawtransaction "hexstring"
+> telestai-cli decoderawtransaction "hexstring"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -640,7 +640,7 @@ Result:
      "expire_time" : n,      (numeric optional ) the message epoch expiration time if one was set
   "reqSigs": n,    (numeric) The required signatures
   "addresses": [   (json array of string)
-     "address"     (string) raven address
+     "address"     (string) telestai address
      ,...
   ],
   "p2sh":"address",       (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).
@@ -655,7 +655,7 @@ Result:
 }
 
 Examples:
-> raven-cli decodescript "hexstring"
+> telestai-cli decodescript "hexstring"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodescript", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -673,8 +673,8 @@ Arguments:
 2. "nodeid"      (number, optional) The node ID (see getpeerinfo for node IDs)
 
 Examples:
-> raven-cli disconnectnode "192.168.0.6:8767"
-> raven-cli disconnectnode "" 1
+> telestai-cli disconnectnode "192.168.0.6:8767"
+> telestai-cli disconnectnode "" 1
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["192.168.0.6:8767"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
@@ -687,7 +687,7 @@ Splits the specified amount of the distribution asset to all owners of asset_nam
 Arguments:
 1. "asset_name"                 (string, required) The reward will be distributed all owners of this asset
 2. "snapshot_height"            (number, required) The block height of the ownership snapshot
-3. "distribution_asset_name"    (string, required) The name of the asset that will be distributed, or RVN
+3. "distribution_asset_name"    (string, required) The name of the asset that will be distributed, or TLS
 4. "gross_distribution_amount"  (number, required) The amount of the distribution asset that will be split amongst all owners
 5. "exception_addresses"        (string, optional) Ownership addresses that should be excluded
 6. "change_address"             (string, optional) If the rewards can't be fully distributed. The change will be sent to this address
@@ -711,10 +711,10 @@ Result:
 }
 
 Examples:
-> raven-cli distributereward "TRONCO" 12345 "RVN" 1000
-> raven-cli distributereward "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
+> telestai-cli distributereward "TRONCO" 12345 "TLS" 1000
+> telestai-cli distributereward "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "distributereward", "params": ["TRONCO" 34987 "DIVIDENDS" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "distributereward", "params": ["PHATSTACKS" 34987 "RVN" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "distributereward", "params": ["PHATSTACKS" 34987 "TLS" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## dumpprivkey
@@ -724,14 +724,14 @@ Reveals the private key corresponding to 'address'.
 Then the importprivkey can be used with this output
 
 Arguments:
-1. "address"   (string, required) The raven address for the private key
+1. "address"   (string, required) The telestai address for the private key
 
 Result:
 "key"                (string) The private key
 
 Examples:
-> raven-cli dumpprivkey "myaddress"
-> raven-cli importprivkey "mykey"
+> telestai-cli dumpprivkey "myaddress"
+> telestai-cli importprivkey "mykey"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpprivkey", "params": ["myaddress"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -741,7 +741,7 @@ Examples:
 Dumps all wallet keys in a human-readable format to a server-side file. This does not allow overwriting existing files.
 
 Arguments:
-1. "filename"    (string, required) The filename with path (either absolute or relative to ravend)
+1. "filename"    (string, required) The filename with path (either absolute or relative to telestaid)
 
 Result:
 {                           (json object)
@@ -749,7 +749,7 @@ Result:
 }
 
 Examples:
-> raven-cli dumpwallet "test"
+> telestai-cli dumpwallet "test"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -769,16 +769,16 @@ Arguments:
 Examples:
 
 Encrypt your wallet
-> raven-cli encryptwallet "my pass phrase"
+> telestai-cli encryptwallet "my pass phrase"
 
-Now set the passphrase to use the wallet, such as for signing or sending raven
-> raven-cli walletpassphrase "my pass phrase"
+Now set the passphrase to use the wallet, such as for signing or sending telestai
+> telestai-cli walletpassphrase "my pass phrase"
 
 Now we can do something like sign
-> raven-cli signmessage "address" "test message"
+> telestai-cli signmessage "address" "test message"
 
 Now lock the wallet again by removing the passphrase
-> raven-cli walletlock 
+> telestai-cli walletlock 
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["my pass phrase"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -804,7 +804,7 @@ have been observed to make an estimate.
 a fee that is high enough to get reliably included in the next block.
 
 Example:
-> raven-cli estimatefee 6
+> telestai-cli estimatefee 6
  
 &nbsp;<br> &nbsp;<br/>
 ## estimatesmartfee
@@ -829,7 +829,7 @@ Arguments:
 
 Result:
 {
-  "feerate" : x.x,     (numeric, optional) estimate fee rate in RVN/kB
+  "feerate" : x.x,     (numeric, optional) estimate fee rate in TLS/kB
   "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
   "blocks" : n         (numeric) block number where estimate was found
 }
@@ -840,7 +840,7 @@ An error is returned if not enough transactions and blocks
 have been observed to make an estimate for any number of blocks.
 
 Example:
-> raven-cli estimatesmartfee 6
+> telestai-cli estimatesmartfee 6
  
 &nbsp;<br> &nbsp;<br/>
 ## freezeaddress
@@ -858,9 +858,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli freezeaddress "$RESTRICTED_ASSET" "address"
+> telestai-cli freezeaddress "$RESTRICTED_ASSET" "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezeaddress", "params": ["$RESTRICTED_ASSET" "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli freezeaddress "$RESTRICTED_ASSET" "address" "change_address"
+> telestai-cli freezeaddress "$RESTRICTED_ASSET" "address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezeaddress", "params": ["$RESTRICTED_ASSET" "address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -878,9 +878,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli freezerestrictedasset "$RESTRICTED_ASSET"
+> telestai-cli freezerestrictedasset "$RESTRICTED_ASSET"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezerestrictedasset", "params": ["$RESTRICTED_ASSET"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli freezerestrictedasset "$RESTRICTED_ASSET" "change_address"
+> telestai-cli freezerestrictedasset "$RESTRICTED_ASSET" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezerestrictedasset", "params": ["$RESTRICTED_ASSET" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -902,15 +902,15 @@ Arguments:
 1. "hexstring"           (string, required) The hex string of the raw transaction
 2. options                 (object, optional)
    {
-     "changeAddress"          (string, optional, default pool address) The raven address to receive the change
+     "changeAddress"          (string, optional, default pool address) The telestai address to receive the change
      "changePosition"         (numeric, optional, default random) The index of the change output
      "includeWatching"        (boolean, optional, default false) Also select inputs which are watch only
      "lockUnspents"           (boolean, optional, default false) Lock selected unspent outputs
-     "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in RVN/kB
+     "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in TLS/kB
      "subtractFeeFromOutputs" (array, optional) A json array of integers.
                               The fee will be equally deducted from the amount of each specified output.
                               The outputs are specified by their zero-based index, before any change output is added.
-                              Those recipients will receive less ravens than you enter in their corresponding amount field.
+                              Those recipients will receive less telestais than you enter in their corresponding amount field.
                               If no outputs are specified here, the sender pays the fee.
                                   [vout_index,...]
                               Allows this transaction to be replaced by a transaction with higher fees
@@ -925,23 +925,23 @@ Arguments:
 Result:
 {
   "hex":       "value", (string)  The resulting raw transaction (hex-encoded string)
-  "fee":       n,         (numeric) Fee in RVN the resulting transaction pays
+  "fee":       n,         (numeric) Fee in TLS the resulting transaction pays
   "changepos": n          (numeric) The position of the added change output, or -1
 }
 
 Examples:
 
 Create a transaction with no inputs
-> raven-cli createrawtransaction "[]" "{\"myaddress\":0.01}"
+> telestai-cli createrawtransaction "[]" "{\"myaddress\":0.01}"
 
 Add sufficient unsigned inputs to meet the output value
-> raven-cli fundrawtransaction "rawtransactionhex"
+> telestai-cli fundrawtransaction "rawtransactionhex"
 
 Sign the transaction
-> raven-cli signrawtransaction "fundedtransactionhex"
+> telestai-cli signrawtransaction "fundedtransactionhex"
 
 Send the transaction
-> raven-cli sendrawtransaction "signedtransactionhex"
+> telestai-cli sendrawtransaction "signedtransactionhex"
  
 &nbsp;<br> &nbsp;<br/>
 ## generate
@@ -959,7 +959,7 @@ Result:
 Examples:
 
 Generate 11 blocks
-> raven-cli generate 11
+> telestai-cli generate 11
  
 &nbsp;<br> &nbsp;<br/>
 ## generatetoaddress
@@ -969,7 +969,7 @@ Mine blocks immediately to a specified address (before the RPC call returns)
 
 Arguments:
 1. nblocks      (numeric, required) How many blocks are generated immediately.
-2. address      (string, required) The address to send the newly generated raven to.
+2. address      (string, required) The address to send the newly generated telestai to.
 3. maxtries     (numeric, optional) How many iterations to try (default = 1000000).
 
 Result:
@@ -978,7 +978,7 @@ Result:
 Examples:
 
 Generate 11 blocks to myaddress
-> raven-cli generatetoaddress 11 "myaddress"
+> telestai-cli generatetoaddress 11 "myaddress"
  
 &nbsp;<br> &nbsp;<br/>
 ## getaccount
@@ -987,31 +987,31 @@ Generate 11 blocks to myaddress
 DEPRECATED. Returns the account associated with the given address.
 
 Arguments:
-1. "address"         (string, required) The raven address for account lookup.
+1. "address"         (string, required) The telestai address for account lookup.
 
 Result:
 "accountname"        (string) the account address
 
 Examples:
-> raven-cli getaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+> telestai-cli getaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaccount", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## getaccountaddress
 &nbsp;<br/>  getaccountaddress "account"
 
-DEPRECATED. Returns the current Raven address for receiving payments to this account.
+DEPRECATED. Returns the current Telestai address for receiving payments to this account.
 
 Arguments:
 1. "account"       (string, required) The account name for the address. It can also be set to the empty string "" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.
 
 Result:
-"address"          (string) The account raven address
+"address"          (string) The account telestai address
 
 Examples:
-> raven-cli getaccountaddress 
-> raven-cli getaccountaddress ""
-> raven-cli getaccountaddress "myaccount"
+> telestai-cli getaccountaddress 
+> telestai-cli getaccountaddress ""
+> telestai-cli getaccountaddress "myaccount"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaccountaddress", "params": ["myaccount"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1031,7 +1031,7 @@ Result:
     "connected" : true|false,          (boolean) If connected
     "addresses" : [                    (list of objects) Only when connected = true
        {
-         "address" : "192.168.0.201:8767",  (string) The raven server IP and port we're connected to
+         "address" : "192.168.0.201:8767",  (string) The telestai server IP and port we're connected to
          "connected" : "outbound"           (string) connection, inbound or outbound
        }
      ]
@@ -1040,7 +1040,7 @@ Result:
 ]
 
 Examples:
-> raven-cli getaddednodeinfo "192.168.0.201"
+> telestai-cli getaddednodeinfo "192.168.0.201"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": ["192.168.0.201"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1068,15 +1068,15 @@ Result:
 OR
 [
   {
-    "assetName"  (string) The asset associated with the balance (RVN for Ravencoin)
+    "assetName"  (string) The asset associated with the balance (TLS for Telestai)
     "balance"  (string) The current balance in satoshis
     "received"  (string) The total number of satoshis received (including change)
   },...
 
 ]
 Examples:
-> raven-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
-> raven-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> telestai-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> telestai-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
@@ -1096,13 +1096,13 @@ Arguments:
   "start" (number) The start block height
   "end" (number) The end block height
   "chainInfo" (boolean) Include chain info in results, only applies if start and end specified
-  "assetName"   (string, optional) Get deltas for a particular asset instead of RVN.
+  "assetName"   (string, optional) Get deltas for a particular asset instead of TLS.
 }
 
 Result:
 [
   {
-    "assetName"  (string) The asset associated with the deltas (RVN for Ravencoin)
+    "assetName"  (string) The asset associated with the deltas (TLS for Telestai)
     "satoshis"  (number) The difference of satoshis
     "txid"  (string) The related txid
     "index"  (number) The related input or output index
@@ -1112,9 +1112,9 @@ Result:
 ]
 
 Examples:
-> raven-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> telestai-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> telestai-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1128,12 +1128,12 @@ Arguments:
 
 Result:
 [                     (json array of string)
-  "address"         (string) a raven address associated with the given account
+  "address"         (string) a telestai address associated with the given account
   ,...
 ]
 
 Examples:
-> raven-cli getaddressesbyaccount "tabby"
+> telestai-cli getaddressesbyaccount "tabby"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1156,7 +1156,7 @@ Result:
 [
   {
     "address"  (string) The base58check encoded address
-    "assetName"  (string) The name of the associated asset (RVN for Ravencoin)
+    "assetName"  (string) The name of the associated asset (TLS for Telestai)
     "txid"  (string) The related txid
     "index"  (number) The related input or output index
     "satoshis"  (number) The difference of satoshis
@@ -1167,9 +1167,9 @@ Result:
 ]
 
 Examples:
-> raven-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> telestai-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> telestai-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1197,9 +1197,9 @@ Result:
 ]
 
 Examples:
-> raven-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> telestai-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> telestai-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1216,14 +1216,14 @@ Arguments:
       ,...
     ],
   "chainInfo",  (boolean, optional, default false) Include chain info with results
-  "assetName"   (string, optional) Get UTXOs for a particular asset instead of RVN ('*' for all assets).
+  "assetName"   (string, optional) Get UTXOs for a particular asset instead of TLS ('*' for all assets).
 }
 
 Result
 [
   {
     "address"  (string) The address base58check encoded
-    "assetName" (string) The asset associated with the UTXOs (RVN for Ravencoin)
+    "assetName" (string) The asset associated with the UTXOs (TLS for Telestai)
     "txid"  (string) The output txid
     "height"  (number) The block height
     "outputIndex"  (number) The output index
@@ -1233,9 +1233,9 @@ Result
 ]
 
 Examples:
-> raven-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> telestai-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> telestai-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1260,7 +1260,7 @@ Result:
 }
 
 Examples:
-> raven-cli getassetdata "ASSET_NAME"
+> telestai-cli getassetdata "ASSET_NAME"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getassetdata", "params": ["ASSET_NAME"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1289,15 +1289,15 @@ Arguments:
 3. include_watchonly (bool, optional, default=false) Also include balance in watch-only addresses (see 'importaddress')
 
 Result:
-amount              (numeric) The total amount in RVN received for this account.
+amount              (numeric) The total amount in TLS received for this account.
 
 Examples:
 
 The total amount in the wallet with 1 or more confirmations
-> raven-cli getbalance 
+> telestai-cli getbalance 
 
 The total amount in the wallet at least 6 blocks confirmed
-> raven-cli getbalance "*" 6
+> telestai-cli getbalance "*" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["*", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -1312,7 +1312,7 @@ Result:
 "hex"      (string) the block hash hex encoded
 
 Examples:
-> raven-cli getbestblockhash 
+> telestai-cli getbestblockhash 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1365,7 +1365,7 @@ Result (for verbosity = 2):
 }
 
 Examples:
-> raven-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> telestai-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblock", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1417,7 +1417,7 @@ Result:
 }
 
 Examples:
-> raven-cli getblockchaininfo 
+> telestai-cli getblockchaininfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1430,7 +1430,7 @@ Result:
 n    (numeric) The current block count
 
 Examples:
-> raven-cli getblockcount 
+> telestai-cli getblockcount 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1446,7 +1446,7 @@ Result:
 "hash"         (string) The block hash
 
 Examples:
-> raven-cli getblockhash 1000
+> telestai-cli getblockhash 1000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1476,9 +1476,9 @@ Result:
 ]
 
 Examples:
-> raven-cli getblockhashes 1231614698 1231024505
+> telestai-cli getblockhashes 1231614698 1231024505
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhashes", "params": [1231614698, 1231024505] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getblockhashes 1231614698 1231024505 '{"noOrphans":false, "logicalTimes":true}'
+> telestai-cli getblockhashes 1231614698 1231024505 '{"noOrphans":false, "logicalTimes":true}'
  
 &nbsp;<br> &nbsp;<br/>
 ## getblockheader
@@ -1513,7 +1513,7 @@ Result (for verbose=false):
 "data"             (string) A string that is serialized, hex-encoded data for block 'hash'.
 
 Examples:
-> raven-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> telestai-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1523,10 +1523,10 @@ Examples:
 If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
 It returns data needed to construct a block to work on.
 For full specification, see BIPs 22, 23, 9, and 145:
-    https://github.com/raven/bips/blob/master/bip-0022.mediawiki
-    https://github.com/raven/bips/blob/master/bip-0023.mediawiki
-    https://github.com/raven/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes
-    https://github.com/raven/bips/blob/master/bip-0145.mediawiki
+    https://github.com/telestai/bips/blob/master/bip-0022.mediawiki
+    https://github.com/telestai/bips/blob/master/bip-0023.mediawiki
+    https://github.com/telestai/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes
+    https://github.com/telestai/bips/blob/master/bip-0145.mediawiki
 
 Arguments:
 1. template_request         (json object, optional) A json object in the following spec
@@ -1590,7 +1590,7 @@ Result:
 }
 
 Examples:
-> raven-cli getblocktemplate 
+> telestai-cli getblocktemplate 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1612,7 +1612,7 @@ Result:
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getcacheinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli getcacheinfo 
+> telestai-cli getcacheinfo 
  
 &nbsp;<br> &nbsp;<br/>
 ## getchaintips
@@ -1642,7 +1642,7 @@ Possible values for status:
 5.  "active"                This is the tip of the active main chain, which is certainly valid
 
 Examples:
-> raven-cli getchaintips 
+> telestai-cli getchaintips 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintips", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1666,7 +1666,7 @@ Result:
 }
 
 Examples:
-> raven-cli getchaintxstats 
+> telestai-cli getchaintxstats 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [2016] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1679,7 +1679,7 @@ Result:
 n          (numeric) The connection count
 
 Examples:
-> raven-cli getconnectioncount 
+> telestai-cli getconnectioncount 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getconnectioncount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1692,7 +1692,7 @@ Result:
 n.nnn       (numeric) the proof-of-work difficulty as a multiple of the minimum difficulty.
 
 Examples:
-> raven-cli getdifficulty 
+> telestai-cli getdifficulty 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1704,29 +1704,29 @@ Give information about the status of the distribution
 Arguments:
 1. "asset_name"                 (string, required) The reward will be distributed all owners of this asset
 2. "snapshot_height"            (number, required) The block height of the ownership snapshot
-3. "distribution_asset_name"    (string, required) The name of the asset that will be distributed, or RVN
+3. "distribution_asset_name"    (string, required) The name of the asset that will be distributed, or TLS
 4. "gross_distribution_amount"  (number, required) The amount of the distribution asset that will be split amongst all owners
 5. "exception_addresses"        (string, optional) Ownership addresses that should be excluded
 
 Examples:
-> raven-cli getdistributestatus "TRONCO" 12345 "RVN" 1000
-> raven-cli getdistributestatus "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
+> telestai-cli getdistributestatus "TRONCO" 12345 "TLS" 1000
+> telestai-cli getdistributestatus "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdistributestatus", "params": ["TRONCO" 34987 "DIVIDENDS" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdistributestatus", "params": ["PHATSTACKS" 34987 "RVN" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdistributestatus", "params": ["PHATSTACKS" 34987 "TLS" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## getgenerate
 &nbsp;<br/>  getgenerate
 
 Return if the server is set to generate coins or not. The default is false.
-It is set with the command line argument -gen (or raven.conf setting gen)
+It is set with the command line argument -gen (or telestai.conf setting gen)
 It can also be set with the setgenerate call.
 
 Result
 true|false      (boolean) If the server is set to generate coins or not
 
 Examples:
-> raven-cli getgenerate 
+> telestai-cli getgenerate 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getgenerate", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1741,7 +1741,7 @@ Result:
   "version": xxxxx,           (numeric) the server version
   "protocolversion": xxxxx,   (numeric) the protocol version
   "walletversion": xxxxx,     (numeric) the wallet version
-  "balance": xxxxxxx,         (numeric) the total Ravencoin balance of the wallet
+  "balance": xxxxxxx,         (numeric) the total Telestai balance of the wallet
   "blocks": xxxxxx,           (numeric) the current number of blocks processed in the server
   "timeoffset": xxxxx,        (numeric) the time offset
   "connections": xxxxx,       (numeric) the number of connections
@@ -1751,13 +1751,13 @@ Result:
   "keypoololdest": xxxxxx,    (numeric) the timestamp (seconds since Unix epoch) of the oldest pre-generated key in the key pool
   "keypoolsize": xxxx,        (numeric) how many new keys are pre-generated
   "unlocked_until": ttt,      (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked
-  "paytxfee": x.xxxx,         (numeric) the transaction fee set in RVN/kB
-  "relayfee": x.xxxx,         (numeric) minimum relay fee for transactions in RVN/kB
+  "paytxfee": x.xxxx,         (numeric) the transaction fee set in TLS/kB
+  "relayfee": x.xxxx,         (numeric) minimum relay fee for transactions in TLS/kB
   "errors": "..."             (string) any error messages
 }
 
 Examples:
-> raven-cli getinfo 
+> telestai-cli getinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1776,7 +1776,7 @@ Arguments
 Result:
 
 Examples:
-> raven-cli getkawpowhash "header_hash" "mix_hash" "0x100000" 2456
+> telestai-cli getkawpowhash "header_hash" "mix_hash" "0x100000" 2456
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getkawpowhash", "params": ["header_hash" "mix_hash" "0x100000" 2456] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1795,7 +1795,7 @@ Result:
 }
 
 Examples:
-> raven-cli getmasterkeyinfo 
+> telestai-cli getmasterkeyinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmasterkeyinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1823,7 +1823,7 @@ Result (mode "mallocinfo"):
 "<malloc version="1">..."
 
 Examples:
-> raven-cli getmemoryinfo 
+> telestai-cli getmemoryinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmemoryinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1846,7 +1846,7 @@ Result (for verbose=true):
 {                           (json object)
   "transactionid" : {       (json object)
     "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-    "fee" : n,              (numeric) transaction fee in RVN
+    "fee" : n,              (numeric) transaction fee in TLS
     "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
     "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     "height" : n,           (numeric) block height when transaction entered pool
@@ -1864,7 +1864,7 @@ Result (for verbose=true):
 }
 
 Examples:
-> raven-cli getmempoolancestors "mytxid"
+> telestai-cli getmempoolancestors "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolancestors", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1887,7 +1887,7 @@ Result (for verbose=true):
 {                           (json object)
   "transactionid" : {       (json object)
     "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-    "fee" : n,              (numeric) transaction fee in RVN
+    "fee" : n,              (numeric) transaction fee in TLS
     "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
     "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     "height" : n,           (numeric) block height when transaction entered pool
@@ -1905,7 +1905,7 @@ Result (for verbose=true):
 }
 
 Examples:
-> raven-cli getmempooldescendants "mytxid"
+> telestai-cli getmempooldescendants "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempooldescendants", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1920,7 +1920,7 @@ Arguments:
 Result:
 {                           (json object)
     "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-    "fee" : n,              (numeric) transaction fee in RVN
+    "fee" : n,              (numeric) transaction fee in TLS
     "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
     "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     "height" : n,           (numeric) block height when transaction entered pool
@@ -1937,7 +1937,7 @@ Result:
 }
 
 Examples:
-> raven-cli getmempoolentry "mytxid"
+> telestai-cli getmempoolentry "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1952,11 +1952,11 @@ Result:
   "bytes": xxxxx,              (numeric) Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted
   "usage": xxxxx,              (numeric) Total memory usage for the mempool
   "maxmempool": xxxxx,         (numeric) Maximum memory usage for the mempool
-  "mempoolminfee": xxxxx       (numeric) Minimum fee rate in RVN/kB for tx to be accepted
+  "mempoolminfee": xxxxx       (numeric) Minimum fee rate in TLS/kB for tx to be accepted
 }
 
 Examples:
-> raven-cli getmempoolinfo 
+> telestai-cli getmempoolinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1975,11 +1975,11 @@ Result:
   "pooledtx": n              (numeric) The size of the mempool
   "chain": "xxxx",           (string) current network name as defined in BIP70 (main, test, regtest)
   "warnings": "..."          (string) any network and blockchain warnings
-  "errors": "..."            (string) DEPRECATED. Same as warnings. Only shown when ravend is started with -deprecatedrpc=getmininginfo
+  "errors": "..."            (string) DEPRECATED. Same as warnings. Only shown when telestaid is started with -deprecatedrpc=getmininginfo
 }
 
 Examples:
-> raven-cli getmininginfo 
+> telestai-cli getmininginfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmininginfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -1994,7 +1994,7 @@ Result:
 "passphrase:"    (optional) Only show if passphrase was used when creating the wallet
 
 Examples:
-> raven-cli getmywords 
+> telestai-cli getmywords 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmywords", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2021,7 +2021,7 @@ Result:
 }
 
 Examples:
-> raven-cli getnettotals 
+> telestai-cli getnettotals 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnettotals", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2040,7 +2040,7 @@ Result:
 x             (numeric) Hashes per second estimated
 
 Examples:
-> raven-cli getnetworkhashps 
+> telestai-cli getnetworkhashps 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2068,8 +2068,8 @@ Result:
   }
   ,...
   ],
-  "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in RVN/kB
-  "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in RVN/kB
+  "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in TLS/kB
+  "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in TLS/kB
   "localaddresses": [                    (array) list of local addresses
   {
     "address": "xxxx",                 (string) network address
@@ -2082,14 +2082,14 @@ Result:
 }
 
 Examples:
-> raven-cli getnetworkinfo 
+> telestai-cli getnetworkinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## getnewaddress
 &nbsp;<br/>  getnewaddress ( "account" )
 
-Returns a new Raven address for receiving payments.
+Returns a new Telestai address for receiving payments.
 If 'account' is specified (DEPRECATED), it is added to the address book 
 so payments received with the address will be credited to 'account'.
 
@@ -2097,10 +2097,10 @@ Arguments:
 1. "account"        (string, optional) DEPRECATED. The account name for the address to be linked to. If not provided, the default account "" is used. It can also be set to the empty string "" to represent the default account. The account does not need to exist, it will be created if there is no account by the given name.
 
 Result:
-"address"    (string) The new raven address
+"address"    (string) The new telestai address
 
 Examples:
-> raven-cli getnewaddress 
+> telestai-cli getnewaddress 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2153,21 +2153,21 @@ Result:
 ]
 
 Examples:
-> raven-cli getpeerinfo 
+> telestai-cli getpeerinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getpeerinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## getrawchangeaddress
 &nbsp;<br/>  getrawchangeaddress
 
-Returns a new Raven address, for receiving change.
+Returns a new Telestai address, for receiving change.
 This is for use with raw transactions, NOT normal use.
 
 Result:
 "address"    (string) The address
 
 Examples:
-> raven-cli getrawchangeaddress 
+> telestai-cli getrawchangeaddress 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawchangeaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2191,7 +2191,7 @@ Result: (for verbose = true):
 {                           (json object)
   "transactionid" : {       (json object)
     "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-    "fee" : n,              (numeric) transaction fee in RVN
+    "fee" : n,              (numeric) transaction fee in TLS
     "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
     "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     "height" : n,           (numeric) block height when transaction entered pool
@@ -2209,7 +2209,7 @@ Result: (for verbose = true):
 }
 
 Examples:
-> raven-cli getrawmempool true
+> telestai-cli getrawmempool true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2256,7 +2256,7 @@ Result (if verbose is set to true):
   ],
   "vout" : [              (array of json objects)
      {
-       "value" : x.xxx,            (numeric) The value in RVN
+       "value" : x.xxx,            (numeric) The value in TLS
        "n" : n,                    (numeric) index
        "scriptPubKey" : {          (json object)
          "asm" : "asm",          (string) the asm
@@ -2264,7 +2264,7 @@ Result (if verbose is set to true):
          "reqSigs" : n,            (numeric) The required sigs
          "type" : "pubkeyhash",  (string) The type, eg 'pubkeyhash'
          "addresses" : [           (json array of string)
-           "address"        (string) raven address
+           "address"        (string) telestai address
            ,...
          ]
        }
@@ -2278,8 +2278,8 @@ Result (if verbose is set to true):
 }
 
 Examples:
-> raven-cli getrawtransaction "mytxid"
-> raven-cli getrawtransaction "mytxid" true
+> telestai-cli getrawtransaction "mytxid"
+> telestai-cli getrawtransaction "mytxid" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawtransaction", "params": ["mytxid", true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2293,18 +2293,18 @@ Arguments:
 2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.
 
 Result:
-amount              (numeric) The total amount in RVN received for this account.
+amount              (numeric) The total amount in TLS received for this account.
 
 Examples:
 
 Amount received by the default account with at least 1 confirmation
-> raven-cli getreceivedbyaccount ""
+> telestai-cli getreceivedbyaccount ""
 
 Amount received at the tabby account including unconfirmed amounts with zero confirmations
-> raven-cli getreceivedbyaccount "tabby" 0
+> telestai-cli getreceivedbyaccount "tabby" 0
 
 The amount with at least 6 confirmations
-> raven-cli getreceivedbyaccount "tabby" 6
+> telestai-cli getreceivedbyaccount "tabby" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaccount", "params": ["tabby", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2316,22 +2316,22 @@ As a json rpc call
 Returns the total amount received by the given address in transactions with at least minconf confirmations.
 
 Arguments:
-1. "address"         (string, required) The raven address for transactions.
+1. "address"         (string, required) The telestai address for transactions.
 2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.
 
 Result:
-amount   (numeric) The total amount in RVN received at this address.
+amount   (numeric) The total amount in TLS received at this address.
 
 Examples:
 
 The amount from transactions with at least 1 confirmation
-> raven-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
 
 The amount including unconfirmed transactions, zero confirmations
-> raven-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 0
+> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 0
 
 The amount with at least 6 confirmations
-> raven-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 6
+> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaddress", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2351,7 +2351,7 @@ Result:
    },...
   ],
 }
-> raven-cli getrpcinfo 
+> telestai-cli getrpcinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrpcinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2395,7 +2395,7 @@ Result:
 }
 
 Examples:
-> raven-cli getsnapshotrequest "TRONCO" 12345
+> telestai-cli getsnapshotrequest "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getsnapshotrequest", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2418,7 +2418,7 @@ Result:
 }
 
 Examples:
-> raven-cli getspentinfo '{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}'
+> telestai-cli getspentinfo '{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getspentinfo", "params": [{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2433,8 +2433,8 @@ Arguments:
 
 Result:
 {
-  "amount" : x.xxx,        (numeric) The transaction amount in RVN
-  "fee": x.xxx,            (numeric) The amount of the fee in RVN. This is negative and only available for the 
+  "amount" : x.xxx,        (numeric) The transaction amount in TLS
+  "fee": x.xxx,            (numeric) The amount of the fee in TLS. This is negative and only available for the 
                               'send' category of transactions.
   "confirmations" : n,     (numeric) The number of confirmations
   "blockhash" : "hash",  (string) The block hash
@@ -2448,12 +2448,12 @@ Result:
   "details" : [
     {
       "account" : "accountname",      (string) DEPRECATED. The account name involved in the transaction, can be "" for the default account.
-      "address" : "address",          (string) The raven address involved in the transaction
+      "address" : "address",          (string) The telestai address involved in the transaction
       "category" : "send|receive",    (string) The category, either 'send' or 'receive'
-      "amount" : x.xxx,                 (numeric) The amount in RVN
+      "amount" : x.xxx,                 (numeric) The amount in TLS
       "label" : "label",              (string) A comment for the address/transaction, if any
       "vout" : n,                       (numeric) the vout value
-      "fee": x.xxx,                     (numeric) The amount of the fee in RVN. This is negative and only available for the 
+      "fee": x.xxx,                     (numeric) The amount of the fee in TLS. This is negative and only available for the 
                                            'send' category of transactions.
       "abandoned": xxx                  (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the 
                                            'send' category of transactions.
@@ -2464,8 +2464,8 @@ Result:
     {
       "asset_type" : "new_asset|transfer_asset|reissue_asset", (string) The type of asset transaction
       "asset_name" : "asset_name",          (string) The name of the asset
-      "amount" : x.xxx,                 (numeric) The amount in RVN
-      "address" : "address",          (string) The raven address involved in the transaction
+      "amount" : x.xxx,                 (numeric) The amount in TLS
+      "address" : "address",          (string) The telestai address involved in the transaction
       "vout" : n,                       (numeric) the vout value
       "category" : "send|receive",    (string) The category, either 'send' or 'receive'
     }
@@ -2475,8 +2475,8 @@ Result:
 }
 
 Examples:
-> raven-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
-> raven-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
+> telestai-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+> telestai-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2494,14 +2494,14 @@ Result:
 {
   "bestblock" : "hash",    (string) the block hash
   "confirmations" : n,       (numeric) The number of confirmations
-  "value" : x.xxx,           (numeric) The transaction value in RVN
+  "value" : x.xxx,           (numeric) The transaction value in TLS
   "scriptPubKey" : {         (json object)
      "asm" : "code",       (string) 
      "hex" : "hex",        (string) 
      "reqSigs" : n,          (numeric) Number of required signatures
      "type" : "pubkeyhash", (string) The type, eg pubkeyhash
-     "addresses" : [          (array of string) array of raven addresses
-        "address"     (string) raven address
+     "addresses" : [          (array of string) array of telestai addresses
+        "address"     (string) telestai address
         ,...
      ]
   },
@@ -2511,10 +2511,10 @@ Result:
 Examples:
 
 Get unspent transactions
-> raven-cli listunspent 
+> telestai-cli listunspent 
 
 View the details
-> raven-cli gettxout "txid" 1
+> telestai-cli gettxout "txid" 1
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxout", "params": ["txid", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2561,7 +2561,7 @@ Result:
 }
 
 Examples:
-> raven-cli gettxoutsetinfo 
+> telestai-cli gettxoutsetinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxoutsetinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2582,7 +2582,7 @@ Result:
 "verifier_string", (string) The verifier for the asset
 
 Examples:
-> raven-cli getverifierstring "restricted_name"
+> telestai-cli getverifierstring "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getverifierstring", "params": ["restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2594,21 +2594,21 @@ Result:
 {
   "walletname": xxxxx,             (string) the wallet name
   "walletversion": xxxxx,          (numeric) the wallet version
-  "balance": xxxxxxx,              (numeric) the total confirmed balance of the wallet in RVN
-  "unconfirmed_balance": xxx,      (numeric) the total unconfirmed balance of the wallet in RVN
-  "immature_balance": xxxxxx,      (numeric) the total immature balance of the wallet in RVN
+  "balance": xxxxxxx,              (numeric) the total confirmed balance of the wallet in TLS
+  "unconfirmed_balance": xxx,      (numeric) the total unconfirmed balance of the wallet in TLS
+  "immature_balance": xxxxxx,      (numeric) the total immature balance of the wallet in TLS
   "txcount": xxxxxxx,              (numeric) the total number of transactions in the wallet
   "keypoololdest": xxxxxx,         (numeric) the timestamp (seconds since Unix epoch) of the oldest pre-generated key in the key pool
   "keypoolsize": xxxx,             (numeric) how many new keys are pre-generated (only counts external keys)
   "keypoolsize_hd_internal": xxxx, (numeric) how many new keys are pre-generated for internal use (used for change outputs, only appears if the wallet is using this feature, otherwise external keys are used)
   "unlocked_until": ttt,           (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked
-  "paytxfee": x.xxxx,              (numeric) the transaction fee configuration, set in RVN/kB
+  "paytxfee": x.xxxx,              (numeric) the transaction fee configuration, set in TLS/kB
   "hdseedid": "<hash160>"          (string, optional) the Hash160 of the HD seed (only present when HD is enabled)
   "hdmasterkeyid": "<hash160>"     (string, optional) alias for hdseedid retained for backwards-compatibility. Will be removed in V0.18.
 }
 
 Examples:
-> raven-cli getwalletinfo 
+> telestai-cli getwalletinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2644,10 +2644,10 @@ as change, and not show up in many RPCs.
 Examples:
 
 Import a script with rescan
-> raven-cli importaddress "myscript"
+> telestai-cli importaddress "myscript"
 
 Import using a label without rescan
-> raven-cli importaddress "myscript" "testing" false
+> telestai-cli importaddress "myscript" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myscript", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2684,8 +2684,8 @@ Arguments:
   }
 
 Examples:
-> raven-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }, { "scriptPubKey": { "address": "<my 2nd address>" }, "label": "example 2", "timestamp": 1455191480 }]'
-> raven-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }]' '{ "rescan": false}'
+> telestai-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }, { "scriptPubKey": { "address": "<my 2nd address>" }, "label": "example 2", "timestamp": 1455191480 }]'
+> telestai-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }]' '{ "rescan": false}'
 
 Response is an array with the same size as the input that has the execution result :
   [{ "success": true } , { "success": false, "error": { "code": -1, "message": "Internal Server Error"} }, ... ]
@@ -2706,16 +2706,16 @@ Note: This call can take minutes to complete if rescan is true.
 Examples:
 
 Dump a private key
-> raven-cli dumpprivkey "myaddress"
+> telestai-cli dumpprivkey "myaddress"
 
 Import the private key with rescan
-> raven-cli importprivkey "mykey"
+> telestai-cli importprivkey "mykey"
 
 Import using a label and without rescan
-> raven-cli importprivkey "mykey" "testing" false
+> telestai-cli importprivkey "mykey" "testing" false
 
 Import using default blank label and without rescan
-> raven-cli importprivkey "mykey" "" false
+> telestai-cli importprivkey "mykey" "" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2746,10 +2746,10 @@ Note: This call can take minutes to complete if rescan is true.
 Examples:
 
 Import a public key with rescan
-> raven-cli importpubkey "mypubkey"
+> telestai-cli importpubkey "mypubkey"
 
 Import using a label without rescan
-> raven-cli importpubkey "mypubkey" "testing" false
+> telestai-cli importpubkey "mypubkey" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importpubkey", "params": ["mypubkey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2766,10 +2766,10 @@ Arguments:
 Examples:
 
 Dump the wallet
-> raven-cli dumpwallet "test"
+> telestai-cli dumpwallet "test"
 
 Import the wallet
-> raven-cli importwallet "test"
+> telestai-cli importwallet "test"
 
 Import using the json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2788,7 +2788,7 @@ Arguments:
 1. "asset_name"            (string, required) a unique name
 2. "qty"                   (numeric, optional, default=1) the number of units to be issued
 3. "to_address"            (string), optional, default=""), address asset will be sent to, if it is empty, address will be generated for you
-4. "change_address"        (string), optional, default=""), address the the rvn change will be sent to, if it is empty, change address will be generated for you
+4. "change_address"        (string), optional, default=""), address the the tls change will be sent to, if it is empty, change address will be generated for you
 5. "units"                 (integer, optional, default=0, min=0, max=8), the number of decimals precision for the asset (0 for whole units ("1"), 8 for max precision ("1.00000000")
 6. "reissuable"            (boolean, optional, default=true (false for unique assets)), whether future reissuance is allowed
 7. "has_ipfs"              (boolean, optional, default=false), whether ipfs hash is going to be added to the asset
@@ -2798,13 +2798,13 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli issue "ASSET_NAME" 1000
-> raven-cli issue "ASSET_NAME" 1000 "myaddress"
-> raven-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 4
-> raven-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 2 true
-> raven-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 8 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
-> raven-cli issue "ASSET_NAME/SUB_ASSET" 1000 "myaddress" "changeaddress" 2 true
-> raven-cli issue "ASSET_NAME#uniquetag"
+> telestai-cli issue "ASSET_NAME" 1000
+> telestai-cli issue "ASSET_NAME" 1000 "myaddress"
+> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 4
+> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 2 true
+> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 8 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> telestai-cli issue "ASSET_NAME/SUB_ASSET" 1000 "myaddress" "changeaddress" 2 true
+> telestai-cli issue "ASSET_NAME#uniquetag"
  
 &nbsp;<br> &nbsp;<br/>
 ## issuequalifierasset
@@ -2821,7 +2821,7 @@ Arguments:
 1. "asset_name"            (string, required) a unique name
 2. "qty"                   (numeric, optional, default=1) the number of units to be issued
 3. "to_address"            (string), optional, default=""), address asset will be sent to, if it is empty, address will be generated for you
-4. "change_address"        (string), optional, default=""), address the the rvn change will be sent to, if it is empty, change address will be generated for you
+4. "change_address"        (string), optional, default=""), address the the tls change will be sent to, if it is empty, change address will be generated for you
 5. "has_ipfs"              (boolean, optional, default=false), whether ipfs hash is going to be added to the asset
 6. "ipfs_hash"             (string, optional but required if has_ipfs = 1), an ipfs hash or a txid hash once RIP5 is activated
 
@@ -2829,13 +2829,13 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli issuequalifierasset "#ASSET_NAME" 1000
-> raven-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress"
-> raven-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress"
-> raven-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress" "changeaddress"
-> raven-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress" true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
-> raven-cli issuequalifierasset "ASSET_NAME/SUB_QUALIFIER" 1000 "myaddress" "changeaddress"
-> raven-cli issuequalifierasset "#ASSET_NAME"
+> telestai-cli issuequalifierasset "#ASSET_NAME" 1000
+> telestai-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress"
+> telestai-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress"
+> telestai-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress" "changeaddress"
+> telestai-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress" true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> telestai-cli issuequalifierasset "ASSET_NAME/SUB_QUALIFIER" 1000 "myaddress" "changeaddress"
+> telestai-cli issuequalifierasset "#ASSET_NAME"
  
 &nbsp;<br> &nbsp;<br/>
 ## issuerestrictedasset
@@ -2851,7 +2851,7 @@ Arguments:
 2. "qty"                   (numeric, required) the quantity of the asset to be issued
 3. "verifier"              (string, required) the verifier string that will be evaluated when restricted asset transfers are made
 4. "to_address"            (string, required) address asset will be sent to, this address must meet the verifier string requirements
-5. "change_address"        (string, optional, default="") address that the rvn change will be sent to, if it is empty, change address will be generated for you
+5. "change_address"        (string, optional, default="") address that the tls change will be sent to, if it is empty, change address will be generated for you
 6. "units"                 (integer, optional, default=0, min=0, max=8) the number of decimals precision for the asset (0 for whole units ("1"), 8 for max precision ("1.00000000")
 7. "reissuable"            (boolean, optional, default=true (false for unique assets)) whether future reissuance is allowed
 8. "has_ipfs"              (boolean, optional, default=false) whether an ipfs hash or txid hash is going to be added to the asset
@@ -2861,11 +2861,11 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
-> raven-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
-> raven-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 5
-> raven-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 8 true
-> raven-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 0 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
+> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
+> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 5
+> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 8 true
+> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 0 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
  
 &nbsp;<br> &nbsp;<br/>
 ## issueunique
@@ -2875,21 +2875,21 @@ Issue unique asset(s).
 root_name must be an asset you own.
 An asset will be created for each element of asset_tags.
 If provided ipfs_hashes must be the same length as asset_tags.
-Five (5) RVN will be burned for each asset created.
+Five (5) TLS will be burned for each asset created.
 
 Arguments:
 1. "root_name"             (string, required) name of the asset the unique asset(s) are being issued under
 2. "asset_tags"            (array, required) the unique tag for each asset which is to be issued
 3. "ipfs_hashes"           (array, optional) ipfs hashes or txid hashes corresponding to each supplied tag (should be same size as "asset_tags")
 4. "to_address"            (string, optional, default=""), address assets will be sent to, if it is empty, address will be generated for you
-5. "change_address"        (string, optional, default=""), address the the rvn change will be sent to, if it is empty, change address will be generated for you
+5. "change_address"        (string, optional, default=""), address the the tls change will be sent to, if it is empty, change address will be generated for you
 
 Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli issueunique "MY_ASSET" '["primo","secundo"]'
-> raven-cli issueunique "MY_ASSET" '["primo","secundo"]' '["first_hash","second_hash"]'
+> telestai-cli issueunique "MY_ASSET" '["primo","secundo"]'
+> telestai-cli issueunique "MY_ASSET" '["primo","secundo"]' '["first_hash","second_hash"]'
  
 &nbsp;<br> &nbsp;<br/>
 ## isvalidverifierstring
@@ -2904,7 +2904,7 @@ Result:
 "xxxxxxx", (string) If the verifier string is valid, and the reason
 
 Examples:
-> raven-cli isvalidverifierstring "verifier_string"
+> telestai-cli isvalidverifierstring "verifier_string"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "isvalidverifierstring", "params": ["verifier_string"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2917,7 +2917,7 @@ Arguments
 1. newsize     (numeric, optional, default=100) The new keypool size
 
 Examples:
-> raven-cli keypoolrefill 
+> telestai-cli keypoolrefill 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "keypoolrefill", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -2939,13 +2939,13 @@ Result:
 Examples:
 
 List account balances where there at least 1 confirmation
-> raven-cli listaccounts 
+> telestai-cli listaccounts 
 
 List account balances including zero confirmation transactions
-> raven-cli listaccounts 0
+> telestai-cli listaccounts 0
 
 List account balances for 6 or more confirmations
-> raven-cli listaccounts 6
+> telestai-cli listaccounts 6
 
 As json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaccounts", "params": [6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2968,9 +2968,9 @@ Result:
 ]
 
 Examples:
-> raven-cli listaddressesbyasset "ASSET_NAME" false 2 0
-> raven-cli listaddressesbyasset "ASSET_NAME" true
-> raven-cli listaddressesbyasset "ASSET_NAME"
+> telestai-cli listaddressesbyasset "ASSET_NAME" false 2 0
+> telestai-cli listaddressesbyasset "ASSET_NAME" true
+> telestai-cli listaddressesbyasset "ASSET_NAME"
  
 &nbsp;<br> &nbsp;<br/>
 ## listaddressesfortag
@@ -2987,7 +2987,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listaddressesfortag "#TAG"
+> telestai-cli listaddressesfortag "#TAG"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressesfortag", "params": ["#TAG"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3002,8 +3002,8 @@ Result:
 [
   [
     [
-      "address",            (string) The raven address
-      amount,                 (numeric) The amount in RVN
+      "address",            (string) The telestai address
+      amount,                 (numeric) The amount in TLS
       "account"             (string, optional) DEPRECATED. The account
     ]
     ,...
@@ -3012,7 +3012,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listaddressgroupings 
+> telestai-cli listaddressgroupings 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3030,7 +3030,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listaddressrestrictions "address"
+> telestai-cli listaddressrestrictions "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressrestrictions", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3040,7 +3040,7 @@ Examples:
 Returns a list of all asset balances for an address.
 
 Arguments:
-1. "address"                  (string, required) a raven address
+1. "address"                  (string, required) a telestai address
 2. "onlytotal"                (boolean, optional, default=false) when false result is just a list of assets balances -- when true the result is just a single number representing the number of assets
 3. "count"                    (integer, optional, default=50000, MAX=50000) truncates results to include only the first _count_ assets found
 4. "start"                    (integer, optional, default=0) results skip over the first _start_ assets found (if negative it skips back from the end)
@@ -3052,9 +3052,9 @@ Result:
 }
 
 Examples:
-> raven-cli listassetbalancesbyaddress "myaddress" false 2 0
-> raven-cli listassetbalancesbyaddress "myaddress" true
-> raven-cli listassetbalancesbyaddress "myaddress"
+> telestai-cli listassetbalancesbyaddress "myaddress" false 2 0
+> telestai-cli listassetbalancesbyaddress "myaddress" true
+> telestai-cli listassetbalancesbyaddress "myaddress"
  
 &nbsp;<br> &nbsp;<br/>
 ## listassets
@@ -3092,8 +3092,8 @@ Result (verbose=true):
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli listassets ASSET
-> raven-cli listassets "ASSET*" true 10 20
+> telestai-cli listassets ASSET
+> telestai-cli listassets "ASSET*" true 10 20
  
 &nbsp;<br> &nbsp;<br/>
 ## listbanned
@@ -3102,7 +3102,7 @@ Examples:
 List all banned IPs/Subnets.
 
 Examples:
-> raven-cli listbanned 
+> telestai-cli listbanned 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3117,7 +3117,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listglobalrestrictions 
+> telestai-cli listglobalrestrictions 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listglobalrestrictions", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3139,16 +3139,16 @@ Result:
 Examples:
 
 List the unspent transactions
-> raven-cli listunspent 
+> telestai-cli listunspent 
 
 Lock an unspent transaction
-> raven-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> telestai-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 List the locked transactions
-> raven-cli listlockunspent 
+> telestai-cli listlockunspent 
 
 Unlock the transaction again
-> raven-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> telestai-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listlockunspent", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3192,9 +3192,9 @@ Result (verbose=true):
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listmyassets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli listmyassets ASSET
-> raven-cli listmyassets "ASSET*" true 10 20
-> raven-cli listmyassets "ASSET*" true 10 20 1
+> telestai-cli listmyassets ASSET
+> telestai-cli listmyassets "ASSET*" true 10 20
+> telestai-cli listmyassets "ASSET*" true 10 20 1
  
 &nbsp;<br> &nbsp;<br/>
 ## listreceivedbyaccount
@@ -3220,8 +3220,8 @@ Result:
 ]
 
 Examples:
-> raven-cli listreceivedbyaccount 
-> raven-cli listreceivedbyaccount 6 true
+> telestai-cli listreceivedbyaccount 
+> telestai-cli listreceivedbyaccount 6 true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaccount", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3241,7 +3241,7 @@ Result:
     "involvesWatchonly" : true,        (bool) Only returned if imported addresses were involved in transaction
     "address" : "receivingaddress",  (string) The receiving address
     "account" : "accountname",       (string) DEPRECATED. The account of the receiving address. The default account is "".
-    "amount" : x.xxx,                  (numeric) The total amount in RVN received by the address
+    "amount" : x.xxx,                  (numeric) The total amount in TLS received by the address
     "confirmations" : n,               (numeric) The number of confirmations of the most recent transaction included
     "label" : "label",               (string) A comment for the address/transaction, if any
     "txids": [
@@ -3253,8 +3253,8 @@ Result:
 ]
 
 Examples:
-> raven-cli listreceivedbyaddress 
-> raven-cli listreceivedbyaddress 6 true
+> telestai-cli listreceivedbyaddress 
+> telestai-cli listreceivedbyaddress 6 true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3276,12 +3276,12 @@ Result:
 {
   "transactions": [
     "account":"accountname",       (string) DEPRECATED. The account name associated with the transaction. Will be "" for the default account.
-    "address":"address",    (string) The raven address of the transaction. Not present for move transactions (category = move).
+    "address":"address",    (string) The telestai address of the transaction. Not present for move transactions (category = move).
     "category":"send|receive",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.
-    "amount": x.xxx,          (numeric) The amount in RVN. This is negative for the 'send' category, and for the 'move' category for moves 
+    "amount": x.xxx,          (numeric) The amount in TLS. This is negative for the 'send' category, and for the 'move' category for moves 
                                           outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.
     "vout" : n,               (numeric) the vout value
-    "fee": x.xxx,             (numeric) The amount of the fee in RVN. This is negative and only available for the 'send' category of transactions.
+    "fee": x.xxx,             (numeric) The amount of the fee in TLS. This is negative and only available for the 'send' category of transactions.
     "confirmations": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and 'receive' category of transactions.
                                           When it's < 0, it means the transaction conflicted that many blocks ago.
     "blockhash": "hashvalue",     (string) The block hash containing the transaction. Available for 'send' and 'receive' category of transactions.
@@ -3305,8 +3305,8 @@ Result:
 }
 
 Examples:
-> raven-cli listsinceblock 
-> raven-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
+> telestai-cli listsinceblock 
+> telestai-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3328,7 +3328,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listsnapshotrequests 
+> telestai-cli listsnapshotrequests 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsnapshotrequests", "params": ["TRONCO" 345333] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3346,7 +3346,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listtagsforaddress "address"
+> telestai-cli listtagsforaddress "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtagsforaddress", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3366,18 +3366,18 @@ Result:
   {
     "account":"accountname",       (string) DEPRECATED. The account name associated with the transaction. 
                                                 It will be "" for the default account.
-    "address":"address",    (string) The raven address of the transaction. Not present for 
+    "address":"address",    (string) The telestai address of the transaction. Not present for 
                                                 move transactions (category = move).
     "category":"send|receive|move", (string) The transaction category. 'move' is a local (off blockchain)
                                                 transaction between accounts, and not associated with an address,
                                                 transaction id or block. 'send' and 'receive' transactions are 
                                                 associated with an address, transaction id and block details
-    "amount": x.xxx,          (numeric) The amount in RVN. This is negative for the 'send' category, and for the
+    "amount": x.xxx,          (numeric) The amount in TLS. This is negative for the 'send' category, and for the
                                          'move' category for moves outbound. It is positive for the 'receive' category,
                                          and for the 'move' category for inbound funds.
     "label": "label",       (string) A comment for the address/transaction, if any
     "vout": n,                (numeric) the vout value
-    "fee": x.xxx,             (numeric) The amount of the fee in RVN. This is negative and only available for the 
+    "fee": x.xxx,             (numeric) The amount of the fee in TLS. This is negative and only available for the 
                                          'send' category of transactions.
     "confirmations": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and 
                                          'receive' category of transactions. Negative confirmations indicate the
@@ -3406,10 +3406,10 @@ Result:
 Examples:
 
 List the most recent 10 transactions in the systems
-> raven-cli listtransactions 
+> telestai-cli listtransactions 
 
 List transactions 100 to 120
-> raven-cli listtransactions "*" 20 100
+> telestai-cli listtransactions "*" 20 100
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3425,19 +3425,19 @@ Optionally filter to only include txouts paid to specified addresses.
 Arguments:
 1. minconf          (numeric, optional, default=1) The minimum confirmations to filter
 2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter
-3. "addresses"      (string) A json array of raven addresses to filter
+3. "addresses"      (string) A json array of telestai addresses to filter
     [
-      "address"     (string) raven address
+      "address"     (string) telestai address
       ,...
     ]
 4. include_unsafe (bool, optional, default=true) Include outputs that are not safe to spend
                   See description of "safe" attribute below.
 5. query_options    (json, optional) JSON with query options
     {
-      "minimumAmount"    (numeric or string, default=0) Minimum value of each UTXO in RVN
-      "maximumAmount"    (numeric or string, default=unlimited) Maximum value of each UTXO in RVN
+      "minimumAmount"    (numeric or string, default=0) Minimum value of each UTXO in TLS
+      "maximumAmount"    (numeric or string, default=unlimited) Maximum value of each UTXO in TLS
       "maximumCount"     (numeric or string, default=unlimited) Maximum number of UTXOs
-      "minimumSumAmount" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in RVN
+      "minimumSumAmount" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in TLS
     }
 
 Result
@@ -3445,10 +3445,10 @@ Result
   {
     "txid" : "txid",          (string) the transaction id 
     "vout" : n,               (numeric) the vout value
-    "address" : "address",    (string) the raven address
+    "address" : "address",    (string) the telestai address
     "account" : "account",    (string) DEPRECATED. The associated account, or "" for the default account
     "scriptPubKey" : "key",   (string) the script key
-    "amount" : x.xxx,         (numeric) the transaction output amount in RVN
+    "amount" : x.xxx,         (numeric) the transaction output amount in TLS
     "confirmations" : n,      (numeric) The number of confirmations
     "redeemScript" : n        (string) The redeemScript if scriptPubKey is P2SH
     "spendable" : xxx,        (bool) Whether we have the private keys to spend this output
@@ -3461,10 +3461,10 @@ Result
 ]
 
 Examples
-> raven-cli listunspent 
-> raven-cli listunspent 6 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"
+> telestai-cli listunspent 
+> telestai-cli listunspent 6 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli listunspent 6 9999999 '[]' true '{ "minimumAmount": 0.005 }'
+> telestai-cli listunspent 6 9999999 '[]' true '{ "minimumAmount": 0.005 }'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999, [] , true, { "minimumAmount": 0.005 } ] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3480,7 +3480,7 @@ Result:
 ]
 
 Examples:
-> raven-cli listwallets 
+> telestai-cli listwallets 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listwallets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3490,7 +3490,7 @@ Examples:
 Updates list of temporarily unspendable outputs.
 Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.
 If no transaction outputs are specified when unlocking then all current locked transaction outputs are unlocked.
-A locked transaction output will not be chosen by automatic coin selection, when spending ravens.
+A locked transaction output will not be chosen by automatic coin selection, when spending telestais.
 Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list
 is always cleared (by virtue of process exit) when a node stops or fails.
 Also see the listunspent call
@@ -3512,16 +3512,16 @@ true|false    (boolean) Whether the command was successful or not
 Examples:
 
 List the unspent transactions
-> raven-cli listunspent 
+> telestai-cli listunspent 
 
 Lock an unspent transaction
-> raven-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> telestai-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 List the locked transactions
-> raven-cli listlockunspent 
+> telestai-cli listlockunspent 
 
 Unlock the transaction again
-> raven-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> telestai-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "lockunspent", "params": [false, "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3535,7 +3535,7 @@ DEPRECATED. Move a specified amount from one account in your wallet to another.
 Arguments:
 1. "fromaccount"   (string, required) The name of the account to move funds from. May be the default account using "".
 2. "toaccount"     (string, required) The name of the account to move funds to. May be the default account using "".
-3. amount            (numeric) Quantity of RVN to move between accounts.
+3. amount            (numeric) Quantity of TLS to move between accounts.
 4. (dummy)           (numeric, optional) Ignored. Remains for backward compatibility.
 5. "comment"       (string, optional) An optional comment, stored in the wallet only.
 
@@ -3544,11 +3544,11 @@ true|false           (boolean) true if successful.
 
 Examples:
 
-Move 0.01 RVN from the default account to the account named tabby
-> raven-cli move "" "tabby" 0.01
+Move 0.01 TLS from the default account to the account named tabby
+> telestai-cli move "" "tabby" 0.01
 
-Move 0.01 RVN timotei to akiko with a comment and funds have 6 confirmations
-> raven-cli move "timotei" "akiko" 0.01 6 "happy birthday!"
+Move 0.01 TLS timotei to akiko with a comment and funds have 6 confirmations
+> telestai-cli move "timotei" "akiko" 0.01 6 "happy birthday!"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "move", "params": ["timotei", "akiko", 0.01, 6, "happy birthday!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3562,7 +3562,7 @@ Results provided in getpeerinfo, pingtime and pingwait fields are decimal second
 Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.
 
 Examples:
-> raven-cli ping 
+> telestai-cli ping 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "ping", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3579,7 +3579,7 @@ Arguments
 Result:
 
 Examples:
-> raven-cli pprpcsb "header_hash" "mix_hash" 100000
+> telestai-cli pprpcsb "header_hash" "mix_hash" 100000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pprpcsb", "params": ["header_hash" "mix_hash" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3598,7 +3598,7 @@ Arguments:
 Result:
 
 Examples:
-> raven-cli preciousblock "blockhash"
+> telestai-cli preciousblock "blockhash"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "preciousblock", "params": ["blockhash"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3618,7 +3618,7 @@ Result:
 true              (boolean) Returns true
 
 Examples:
-> raven-cli prioritisetransaction "txid" 0.0 10000
+> telestai-cli prioritisetransaction "txid" 0.0 10000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "prioritisetransaction", "params": ["txid", 0.0, 10000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3633,7 +3633,7 @@ Result:
 n    (numeric) Height of the last block pruned.
 
 Examples:
-> raven-cli pruneblockchain 1000
+> telestai-cli pruneblockchain 1000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pruneblockchain", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3653,7 +3653,7 @@ Result:
 }
 
 Examples:
-> raven-cli purgesnapshot "ASSET_NAME" 28546
+> telestai-cli purgesnapshot "ASSET_NAME" 28546
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "purgesnapshot", "params": ["ASSET_NAME" 28546] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3676,7 +3676,7 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli reissue "ASSET_NAME" 20 "address"
+> telestai-cli reissue "ASSET_NAME" 20 "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "reissue", "params": ["ASSET_NAME" 20 "address" "change_address" "true" 8 "Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3692,7 +3692,7 @@ Arguments:
 3. "to_address"            (string, required) address asset will be sent to, this address must meet the verifier string requirements
 4. "change_verifier"       (boolean, optional, default=false) if the verifier string will get changed
 5. "new_verifier"          (string, optional, default="") the new verifier string that will be evaluated when restricted asset transfers are made
-6. "change_address"        (string, optional, default="") address that the rvn change will be sent to, if it is empty, change address will be generated for you
+6. "change_address"        (string, optional, default="") address that the tls change will be sent to, if it is empty, change address will be generated for you
 7. "new_units"             (numeric, optional, default=-1) the new units that will be associated with the asset
 8. "reissuable"            (boolean, optional, default=true (false for unique assets)) whether future reissuance is allowed
 9. "new_ipfs"              (string, optional, default="") whether to update the current ipfs hash or txid once RIP5 is active
@@ -3701,11 +3701,11 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML"
-> raven-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" 
-> raven-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress"
-> raven-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress" -1 true
-> raven-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" false "" "changeaddress" -1 false QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML"
+> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" 
+> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress"
+> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress" -1 true
+> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" false "" "changeaddress" -1 false QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
  
 &nbsp;<br> &nbsp;<br/>
 ## removeprunedfunds
@@ -3717,7 +3717,7 @@ Arguments:
 1. "txid"           (string, required) The hex-encoded id of the transaction you are deleting
 
 Examples:
-> raven-cli removeprunedfunds "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
+> telestai-cli removeprunedfunds "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removeprunedfunds", "params": ["a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3738,9 +3738,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli removetagfromaddress "#TAG" "to_address"
+> telestai-cli removetagfromaddress "#TAG" "to_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removetagfromaddress", "params": ["#TAG" "to_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli removetagfromaddress "#TAG" "to_address" "change_address"
+> telestai-cli removetagfromaddress "#TAG" "to_address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removetagfromaddress", "params": ["#TAG" "to_address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3759,7 +3759,7 @@ Result:
 }
 
 Examples:
-> raven-cli requestsnapshot "TRONCO" 12345
+> telestai-cli requestsnapshot "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "requestsnapshot", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3779,7 +3779,7 @@ Result:
 }
 
 Examples:
-> raven-cli rescanblockchain 100000 120000
+> telestai-cli rescanblockchain 100000 120000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "rescanblockchain", "params": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3789,22 +3789,22 @@ Examples:
 Dumps the mempool to disk.
 
 Examples:
-> raven-cli savemempool 
+> telestai-cli savemempool 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "savemempool", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## sendfrom
 &nbsp;<br/>  sendfrom "fromaccount" "toaddress" amount ( minconf "comment" "comment_to" )
 
-DEPRECATED (use sendtoaddress). Sent an amount from an account to a raven address.
+DEPRECATED (use sendtoaddress). Sent an amount from an account to a telestai address.
 
 Arguments:
 1. "fromaccount"       (string, required) The name of the account to send funds from. May be the default account using "".
                        Specifying an account does not influence coin selection, but it does associate the newly created
                        transaction with the account, so the account's balance computation and transaction history can reflect
                        the spend.
-2. "toaddress"         (string, required) The raven address to send funds to.
-3. amount                (numeric or string, required) The amount in RVN (transaction fee is added on top).
+2. "toaddress"         (string, required) The telestai address to send funds to.
+3. amount                (numeric or string, required) The amount in TLS (transaction fee is added on top).
 4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.
 5. "comment"           (string, optional) A comment used to store what the transaction is for. 
                                      This is not part of the transaction, just kept in your wallet.
@@ -3817,11 +3817,11 @@ Result:
 
 Examples:
 
-Send 0.01 RVN from the default account to the address, must have at least 1 confirmation
-> raven-cli sendfrom "" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01
+Send 0.01 TLS from the default account to the address, must have at least 1 confirmation
+> telestai-cli sendfrom "" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01
 
 Send 0.01 from the tabby account to the given address, funds must have at least 6 confirmations
-> raven-cli sendfrom "tabby" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01 6 "donation" "seans outpost"
+> telestai-cli sendfrom "tabby" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01 6 "donation" "seans outpost"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfrom", "params": ["tabby", "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.01, 6, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3830,19 +3830,19 @@ As a json rpc call
 ## sendfromaddress
 &nbsp;<br/>  sendfromaddress "from_address" "to_address" amount ( "comment" "comment_to" subtractfeefromamount replaceable conf_target "estimate_mode")
 
-Send an amount from a specific address to a given address. All rvn change will get sent back to the from_address
+Send an amount from a specific address to a given address. All tls change will get sent back to the from_address
 
 Arguments:
-1. "from_address"       (string, required) The raven address to send from.
-2. "to_address"            (string, required) The raven address to send to.
-3. "amount"             (numeric or string, required) The amount in RVN to send. eg 0.1
+1. "from_address"       (string, required) The telestai address to send from.
+2. "to_address"            (string, required) The telestai address to send to.
+3. "amount"             (numeric or string, required) The amount in TLS to send. eg 0.1
 4. "comment"            (string, optional) A comment used to store what the transaction is for. 
                              This is not part of the transaction, just kept in your wallet.
 5. "comment_to"         (string, optional) A comment to store the name of the person or organization 
                              to which you're sending the transaction. This is not part of the 
                              transaction, just kept in your wallet.
 6. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.
-                             The recipient will receive less ravens than you enter in the amount field.
+                             The recipient will receive less telestais than you enter in the amount field.
 7. conf_target            (numeric, optional) Confirmation target (in blocks)
 8. "estimate_mode"      (string, optional, default=UNSET) The fee estimate mode, must be one of:
        "UNSET"
@@ -3853,9 +3853,9 @@ Result:
 "txid"                  (string) The transaction id.
 
 Examples:
-> raven-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
-> raven-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
-> raven-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
+> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
+> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfromaddress", "params": ["1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3868,14 +3868,14 @@ Arguments:
 1. "fromaccount"         (string, required) DEPRECATED. The account to send the funds from. Should be "" for the default account
 2. "amounts"             (string, required) A json object with addresses and amounts
     {
-      "address":amount   (numeric or string) The raven address is the key, the numeric amount (can be string) in RVN is the value
+      "address":amount   (numeric or string) The telestai address is the key, the numeric amount (can be string) in TLS is the value
       ,...
     }
 3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.
 4. "comment"             (string, optional) A comment
 5. subtractfeefrom         (array, optional) A json array with addresses.
                            The fee will be equally deducted from the amount of each selected address.
-                           Those recipients will receive less ravens than you enter in their corresponding amount field.
+                           Those recipients will receive less telestais than you enter in their corresponding amount field.
                            If no addresses are specified here, the sender pays the fee.
     [
       "address"          (string) Subtract fee from this address
@@ -3894,13 +3894,13 @@ Result:
 Examples:
 
 Send two amounts to two different addresses:
-> raven-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}"
+> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}"
 
 Send two amounts to two different addresses setting the confirmation and comment:
-> raven-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 6 "testing"
+> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 6 "testing"
 
 Send two amounts to two different addresses, subtract fee from amount:
-> raven-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 1 "" "[\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\",\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\"]"
+> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 1 "" "[\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\",\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\"]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}", 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3920,8 +3920,8 @@ txid
 ]
 
 Examples:
-> raven-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> raven-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
  
 &nbsp;<br> &nbsp;<br/>
 ## sendrawtransaction
@@ -3941,12 +3941,12 @@ Result:
 Examples:
 
 Create a transaction
-> raven-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+> telestai-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
 Sign the transaction, and get back the hex
-> raven-cli signrawtransaction "myhex"
+> telestai-cli signrawtransaction "myhex"
 
 Send the transaction (signed hex)
-> raven-cli sendrawtransaction "signedhex"
+> telestai-cli sendrawtransaction "signedhex"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendrawtransaction", "params": ["signedhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3958,15 +3958,15 @@ As a json rpc call
 Send an amount to a given address.
 
 Arguments:
-1. "address"            (string, required) The raven address to send to.
-2. "amount"             (numeric or string, required) The amount in RVN to send. eg 0.1
+1. "address"            (string, required) The telestai address to send to.
+2. "amount"             (numeric or string, required) The amount in TLS to send. eg 0.1
 3. "comment"            (string, optional) A comment used to store what the transaction is for. 
                              This is not part of the transaction, just kept in your wallet.
 4. "comment_to"         (string, optional) A comment to store the name of the person or organization 
                              to which you're sending the transaction. This is not part of the 
                              transaction, just kept in your wallet.
 5. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.
-                             The recipient will receive less ravens than you enter in the amount field.
+                             The recipient will receive less telestais than you enter in the amount field.
 6. conf_target            (numeric, optional) Confirmation target (in blocks)
 7. "estimate_mode"      (string, optional, default=UNSET) The fee estimate mode, must be one of:
        "UNSET"
@@ -3977,9 +3977,9 @@ Result:
 "txid"                  (string) The transaction id.
 
 Examples:
-> raven-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
-> raven-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
-> raven-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
+> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
+> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendtoaddress", "params": ["1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -3989,11 +3989,11 @@ Examples:
 DEPRECATED. Sets the account associated with the given address.
 
 Arguments:
-1. "address"         (string, required) The raven address to be associated with an account.
+1. "address"         (string, required) The telestai address to be associated with an account.
 2. "account"         (string, required) The account to assign the address to.
 
 Examples:
-> raven-cli setaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "tabby"
+> telestai-cli setaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "tabby"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setaccount", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4009,8 +4009,8 @@ Arguments:
 4. "absolute"     (boolean, optional) If set, the bantime must be an absolute timestamp in seconds since epoch (Jan 1 1970 GMT)
 
 Examples:
-> raven-cli setban "192.168.0.6" "add" 86400
-> raven-cli setban "192.168.0.0/24" "add"
+> telestai-cli setban "192.168.0.6" "add" 86400
+> telestai-cli setban "192.168.0.0/24" "add"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setban", "params": ["192.168.0.6", "add", 86400] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4028,13 +4028,13 @@ Arguments:
 Examples:
 
 Set the generation on with a limit of one processor
-> raven-cli setgenerate true 1
+> telestai-cli setgenerate true 1
 
 Check the setting
-> raven-cli getgenerate 
+> telestai-cli getgenerate 
 
 Turn off generation
-> raven-cli setgenerate false
+> telestai-cli setgenerate false
 
 Using json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setgenerate", "params": [true, 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4055,13 +4055,13 @@ Arguments:
 Set the transaction fee per kB. Overwrites the paytxfee parameter.
 
 Arguments:
-1. amount         (numeric or string, required) The transaction fee in RVN/kB
+1. amount         (numeric or string, required) The transaction fee in TLS/kB
 
 Result
 true|false        (boolean) Returns true if successful
 
 Examples:
-> raven-cli settxfee 0.00001
+> telestai-cli settxfee 0.00001
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4071,7 +4071,7 @@ Examples:
 Sign a message with the private key of an address
 
 Arguments:
-1. "address"         (string, required) The raven address to use for the private key.
+1. "address"         (string, required) The telestai address to use for the private key.
 2. "message"         (string, required) The message to create a signature of.
 
 Result:
@@ -4080,13 +4080,13 @@ Result:
 Examples:
 
 Unlock the wallet for 30 seconds
-> raven-cli walletpassphrase "mypassphrase" 30
+> telestai-cli walletpassphrase "mypassphrase" 30
 
 Create the signature
-> raven-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
+> telestai-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
 
 Verify the signature
-> raven-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessage", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4107,10 +4107,10 @@ Result:
 Examples:
 
 Create the signature
-> raven-cli signmessagewithprivkey "privkey" "my message"
+> telestai-cli signmessagewithprivkey "privkey" "my message"
 
 Verify the signature
-> raven-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessagewithprivkey", "params": ["privkey", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4169,20 +4169,20 @@ Result:
 }
 
 Examples:
-> raven-cli signrawtransaction "myhex"
+> telestai-cli signrawtransaction "myhex"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransaction", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## stop
 &nbsp;<br/>  stop
 
-Stop Raven server. 
+Stop Telestai server. 
 &nbsp;<br> &nbsp;<br/>
 ## submitblock
 &nbsp;<br/>  submitblock "hexdata"  ( "dummy" )
 
 Attempts to submit new block to network.
-See https://en.raven.it/wiki/BIP_0022 for full specification.
+See https://en.telestai.it/wiki/BIP_0022 for full specification.
 
 Arguments
 1. "hexdata"        (string, required) the hex-encoded block data to submit
@@ -4191,7 +4191,7 @@ Arguments
 Result:
 
 Examples:
-> raven-cli submitblock "mydata"
+> telestai-cli submitblock "mydata"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "submitblock", "params": ["mydata"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4208,7 +4208,7 @@ Result:[
 ]
 
 Examples:
-> raven-cli subscribetochannel "ASSET_NAME!"
+> telestai-cli subscribetochannel "ASSET_NAME!"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "subscribetochannel", "params": ["ASSET_NAME!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4239,12 +4239,12 @@ Result:
 Examples:
 
 Create a transaction
-> raven-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+> telestai-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
 Sign the transaction, and get back the hex
-> raven-cli signrawtransaction "myhex"
+> telestai-cli signrawtransaction "myhex"
 
 Test acceptance of the transaction (signed hex)
-> raven-cli testmempoolaccept "signedhex"
+> telestai-cli testmempoolaccept "signedhex"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "testmempoolaccept", "params": [["signedhex"]] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4260,7 +4260,7 @@ Arguments:
 3. "to_address"               (string, required) address to send the asset to
 4. "message"                  (string, optional) Once RIP5 is voted in ipfs hash or txid hash to send along with the transfer
 5. "expire_time"              (numeric, optional) UTC timestamp of when the message expires
-6. "change_address"       (string, optional, default = "") the transactions RVN change will be sent to this address
+6. "change_address"       (string, optional, default = "") the transactions TLS change will be sent to this address
 7. "asset_change_address"     (string, optional, default = "") the transactions Asset change will be sent to this address
 
 Result:
@@ -4269,8 +4269,8 @@ txid
 ]
 
 Examples:
-> raven-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> raven-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
  
 &nbsp;<br> &nbsp;<br/>
 ## transferfromaddress
@@ -4284,7 +4284,7 @@ Arguments:
 4. "to_address"               (string, required) address to send the asset to
 5. "message"                  (string, optional) Once RIP5 is voted in ipfs hash or txid hash to send along with the transfer
 6. "expire_time"              (numeric, optional) UTC timestamp of when the message expires
-7. "rvn_change_address"       (string, optional, default = "") the transaction RVN change will be sent to this address
+7. "rvn_change_address"       (string, optional, default = "") the transaction TLS change will be sent to this address
 8. "asset_change_address"     (string, optional, default = "") the transaction Asset change will be sent to this address
 
 Result:
@@ -4293,7 +4293,7 @@ txid
 ]
 
 Examples:
-> raven-cli transferfromaddress "ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652
+> telestai-cli transferfromaddress "ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "transferfromaddress", "params": ["ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4308,7 +4308,7 @@ Arguments:
 4. "to_address"               (string, required) address to send the asset to
 5. "message"                  (string, optional) Once RIP5 is voted in ipfs hash or txid hash to send along with the transfer
 6. "expire_time"              (numeric, optional) UTC timestamp of when the message expires
-7. "rvn_change_address"       (string, optional, default = "") the transactions RVN change will be sent to this address
+7. "rvn_change_address"       (string, optional, default = "") the transactions TLS change will be sent to this address
 8. "asset_change_address"     (string, optional, default = "") the transactions Asset change will be sent to this address
 
 Result:
@@ -4317,7 +4317,7 @@ txid
 ]
 
 Examples:
-> raven-cli transferfromaddresses "ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365
+> telestai-cli transferfromaddresses "ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "transferfromaddresses", "params": ["ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4339,8 +4339,8 @@ txid
 ]
 
 Examples:
-> raven-cli transferqualifier "#QUALIFIER" 20 "to_address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> raven-cli transferqualifier "#QUALIFIER" 20 "to_address" "change_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli transferqualifier "#QUALIFIER" 20 "to_address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> telestai-cli transferqualifier "#QUALIFIER" 20 "to_address" "change_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
  
 &nbsp;<br> &nbsp;<br/>
 ## unfreezeaddress
@@ -4358,9 +4358,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli unfreezeaddress "$RESTRICTED_ASSET" "address"
+> telestai-cli unfreezeaddress "$RESTRICTED_ASSET" "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezeaddress", "params": ["$RESTRICTED_ASSET" "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli unfreezeaddress "$RESTRICTED_ASSET" "address" "change_address"
+> telestai-cli unfreezeaddress "$RESTRICTED_ASSET" "address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezeaddress", "params": ["$RESTRICTED_ASSET" "address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4378,9 +4378,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> raven-cli unfreezerestrictedasset "$RESTRICTED_ASSET"
+> telestai-cli unfreezerestrictedasset "$RESTRICTED_ASSET"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezerestrictedasset", "params": ["$RESTRICTED_ASSET"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> raven-cli unfreezerestrictedasset "$RESTRICTED_ASSET" "change_address"
+> telestai-cli unfreezerestrictedasset "$RESTRICTED_ASSET" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezerestrictedasset", "params": ["$RESTRICTED_ASSET" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4397,7 +4397,7 @@ Result:[
 ]
 
 Examples:
-> raven-cli unsubscribefromchannel "ASSET_NAME!"
+> telestai-cli unsubscribefromchannel "ASSET_NAME!"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unsubscribefromchannel", "params": ["ASSET_NAME!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4410,22 +4410,22 @@ Result:
 ttt        (numeric) The number of seconds that the server has been running
 
 Examples:
-> raven-cli uptime 
+> telestai-cli uptime 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "uptime", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
 ## validateaddress
 &nbsp;<br/>  validateaddress "address"
 
-Return information about the given raven address.
+Return information about the given telestai address.
 
 Arguments:
-1. "address"     (string, required) The raven address to validate
+1. "address"     (string, required) The telestai address to validate
 
 Result:
 {
   "isvalid" : true|false,       (boolean) If the address is valid or not. If not, this is the only property returned.
-  "address" : "address", (string) The raven address validated
+  "address" : "address", (string) The telestai address validated
   "scriptPubKey" : "hex",       (string) The hex encoded scriptPubKey generated by the address
   "ismine" : true|false,        (boolean) If the address is yours or not
   "iswatchonly" : true|false,   (boolean) If the address is watchonly
@@ -4447,7 +4447,7 @@ Result:
 }
 
 Examples:
-> raven-cli validateaddress "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
+> telestai-cli validateaddress "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "validateaddress", "params": ["1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4464,7 +4464,7 @@ Result:
 true|false       (boolean) Verified or not
 
 Examples:
-> raven-cli verifychain 
+> telestai-cli verifychain 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifychain", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4474,7 +4474,7 @@ Examples:
 Verify a signed message
 
 Arguments:
-1. "address"         (string, required) The raven address to use for the signature.
+1. "address"         (string, required) The telestai address to use for the signature.
 2. "signature"       (string, required) The signature provided by the signer in base 64 encoding (see signmessage).
 3. "message"         (string, required) The message that was signed.
 
@@ -4484,13 +4484,13 @@ true|false   (boolean) If the signature is verified or not.
 Examples:
 
 Unlock the wallet for 30 seconds
-> raven-cli walletpassphrase "mypassphrase" 30
+> telestai-cli walletpassphrase "mypassphrase" 30
 
 Create the signature
-> raven-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
+> telestai-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
 
 Verify the signature
-> raven-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifymessage", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "signature", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4520,7 +4520,7 @@ Result:[
 ]
 
 Examples:
-> raven-cli viewallmessagechannels 
+> telestai-cli viewallmessagechannels 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewallmessagechannels", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4539,7 +4539,7 @@ Result:
 "Expire UTC Time:"                (Date, optional) If the message contains an expire date that is too large, the UTC number will be displayed
 
 Examples:
-> raven-cli viewallmessages 
+> telestai-cli viewallmessages 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewallmessages", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4557,7 +4557,7 @@ Result:
 }...
 
 Examples:
-> raven-cli viewmyrestrictedaddresses 
+> telestai-cli viewmyrestrictedaddresses 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewmyrestrictedaddresses", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  
 &nbsp;<br> &nbsp;<br/>
@@ -4575,6 +4575,6 @@ Result:
 }...
 
 Examples:
-> raven-cli viewmytaggedaddresses 
+> telestai-cli viewmytaggedaddresses 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewmytaggedaddresses", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
  

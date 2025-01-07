@@ -1,36 +1,36 @@
-# ravencoin-rpc
+# telestai-rpc
 
-A package that will help you do RPC calls from Node.js to your Raven core node, that is your full Ravencoin node.
+A package that will help you do RPC calls from Node.js to your Telestai core node, that is your full Telestai node.
 
-URLs for locally installed Ravencoin nodes.
+URLs for locally installed Telestai nodes.
 
 - http://127.0.0.1:8766 for mainnet
 - http://127.0.0.1:18766 for testnet
 
-Ravencoin as a service, you don't need your own node
+Telestai as a service, you don't need your own node
 
-- https://rvn-rpc-mainnet.ting.finance/rpc for mainnet
-- https://rvn-rpc-testnet.ting.finance/rpc for testnet
+- https://tls-rpc-mainnet.ting.finance/rpc for mainnet
+- https://tls-rpc-testnet.ting.finance/rpc for testnet
 
 # Install
 
 ```
-npm install @ravenrebels/ravencoin-rpc
+npm install @telestai-project/telestai-rpc
 ```
 
 # Example using ES modules
 
-This example uses Ravencoin as a service from https://rpc.ting.finance.
+This example uses Telestai as a service from https://rpc.ting.finance.
 
 In node.js you need to give the file the ending .mjs for modular JavaScript.
 Like `example.mjs`
 
 ```
-import { getRPC, methods } from "@ravenrebels/ravencoin-rpc";
+import { getRPC, methods } from "@telestai-project/telestai-rpc";
 
 const username = "anonymous";
 const password = "anonymous";
-const URL = "https://rvn-rpc-mainnet.ting.finance/rpc";
+const URL = "https://tls-rpc-mainnet.ting.finance/rpc";
 const rpc = getRPC(username, password, URL);
 
 const params = [];
@@ -41,7 +41,7 @@ rpc(methods.getblockcount, params).then(console.log);
 
 ```
 
-const { getRPC, methods } = require("@ravenrebels/ravencoin-rpc");
+const { getRPC, methods } = require("@telestai-project/telestai-rpc");
 //methods is a list of all available methods/functions/commands/procedures
 
 const rpc = getRPC("UsernameSecret", "PasswordSecret", "http://localhost:8766");
@@ -64,13 +64,13 @@ will print out
 { name: 'ELVIS', amount: 1, units: 8, reissuable: 1, has_ipfs: 0 }
 ```
 
-## Example list all generated addresses in a Wallet (Raven core)
+## Example list all generated addresses in a Wallet (Telestai core)
 
 Use method `listreceivedbyaddress` to receive a list of all generated addresses.
 Write the result to a .json file
 
 ```
-const { getRPC, methods } = require("@ravenrebels/ravencoin-rpc");
+const { getRPC, methods } = require("@telestai-project/telestai-rpc");
 //methods is a list of all available methods/functions/commands/procedures
 
 const method = methods.listreceivedbyaddress;
@@ -105,9 +105,9 @@ function writeToFile(list){
 
 # Methods / commands / Procedure calls
 
-Here is a list of all method/commands [All methods](ravencoin_methods.md)
+Here is a list of all method/commands [All methods](telestai_methods.md)
 
-In your local Raven core wallet, you can go to
+In your local Telestai core wallet, you can go to
 
 help > debug window > console
 
@@ -270,7 +270,7 @@ abortrescan
 addmultisigaddress nrequired ["key",...] ( "account" )
 addwitnessaddress "address"
 backupwallet "destination"
-bumpfee has been deprecated on the RVN Wallet.
+bumpfee has been deprecated on the TLS Wallet.
 dumpprivkey "address"
 dumpwallet "filename"
 encryptwallet "passphrase"
