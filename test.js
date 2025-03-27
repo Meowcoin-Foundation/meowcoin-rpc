@@ -1,10 +1,10 @@
-const TelestaiRPC = require("./dist/index.cjs");
+const MeowcoinRPC = require("./dist/index.cjs");
 
 test("3rd party service getblockcount", async () => {
-  const rpc = TelestaiRPC.getRPC(
+  const rpc = MeowcoinRPC.getRPC(
     "anon",
     "anon",
-    "https://tls-rpc-mainnet.ting.finance/rpc"
+    "https://mewc-rpc-mainnet.mewccrypto.com/rpc"
   );
   let count = 0;
   try {
@@ -16,10 +16,10 @@ test("3rd party service getblockcount", async () => {
 });
 
 test("3rd party service incorrect method", async () => {
-  const rpc = TelestaiRPC.getRPC(
+  const rpc = MeowcoinRPC.getRPC(
     "anon",
     "anon",
-    "https://tls-rpc-mainnet.ting.finance/rpc"
+    "https://mewc-rpc-mainnet.mewccrypto.com/rpc"
   );
   const method = "getblockcountWRONG";
   const params = [];
@@ -39,7 +39,7 @@ test("3rd party service incorrect method", async () => {
 });
 
 test("Non existing 3rd party service getblockcount", async () => {
-  const rpc = TelestaiRPC.getRPC(
+  const rpc = MeowcoinRPC.getRPC(
     "anon",
     "anon",
     "https://tls-rpc-mainnet.WRONG.ting.finance/rpc"

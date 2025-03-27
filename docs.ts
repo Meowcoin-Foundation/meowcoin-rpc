@@ -187,7 +187,7 @@ Arguments:
 Result:
 
 Examples:
-> telestai-cli abandontransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+> meowcoin-cli abandontransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abandontransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   abandontransaction: "abandontransaction",
@@ -199,10 +199,10 @@ Stops current wallet rescan triggered e.g. by an importprivkey call.
 Examples:
 
 Import a private key
-> telestai-cli importprivkey "mykey"
+> meowcoin-cli importprivkey "mykey"
 
 Abort the running wallet rescan
-> telestai-cli abortrescan 
+> meowcoin-cli abortrescan 
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abortrescan", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -212,7 +212,7 @@ As a JSON-RPC call
   /** addmultisigaddress nrequired ["key",...] ( "account" )
 
 Add a nrequired-to-sign multisignature address to the wallet.
-Each key is a Telestai address or hex-encoded public key.
+Each key is a Meowcoin address or hex-encoded public key.
 If 'account' is specified (DEPRECATED), assign address to that account.
 
 Arguments:
@@ -230,7 +230,7 @@ Result:
 Examples:
 
 Add a multisig address from 2 addresses
-> telestai-cli addmultisigaddress 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
+> meowcoin-cli addmultisigaddress 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
 
 As json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -249,7 +249,7 @@ Arguments:
 2. "command"  (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once
 
 Examples:
-> telestai-cli addnode "192.168.0.6:8767" "onetry"
+> meowcoin-cli addnode "192.168.0.6:8767" "onetry"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:8767", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   addnode: "addnode",
@@ -268,9 +268,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli addtagtoaddress "#TAG" "to_address"
+> meowcoin-cli addtagtoaddress "#TAG" "to_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addtagtoaddress", "params": ["#TAG" "to_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli addtagtoaddress "#TAG" "to_address" "change_address"
+> meowcoin-cli addtagtoaddress "#TAG" "to_address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addtagtoaddress", "params": ["#TAG" "to_address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   addtagtoaddress: "addtagtoaddress",
@@ -297,7 +297,7 @@ Arguments:
 1. "destination"   (string) The destination directory or file
 
 Examples:
-> telestai-cli backupwallet "backup.dat"
+> meowcoin-cli backupwallet "backup.dat"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backup.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   backupwallet: "backupwallet",
@@ -319,7 +319,7 @@ Result:
 }
 
 Examples:
-> telestai-cli cancelsnapshotrequest "TRONCO" 12345
+> meowcoin-cli cancelsnapshotrequest "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "cancelsnapshotrequest", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   cancelsnapshotrequest: "cancelsnapshotrequest",
@@ -336,7 +336,7 @@ Result:
 "true/false", (boolean) If the address is frozen
 
 Examples:
-> telestai-cli checkaddressrestriction "address" "restricted_name"
+> meowcoin-cli checkaddressrestriction "address" "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkaddressrestriction", "params": ["address" "restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   checkaddressrestriction: "checkaddressrestriction",
@@ -353,7 +353,7 @@ Result:
 "true/false", (boolean) If the address has the tag
 
 Examples:
-> telestai-cli checkaddresstag "address" "tag_name"
+> meowcoin-cli checkaddresstag "address" "tag_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkaddresstag", "params": ["address" "tag_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   checkaddresstag: "checkaddresstag",
@@ -369,7 +369,7 @@ Result:
 "true/false", (boolean) If the restricted asset is frozen globally
 
 Examples:
-> telestai-cli checkglobalrestriction "restricted_name"
+> meowcoin-cli checkglobalrestriction "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "checkglobalrestriction", "params": ["restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   checkglobalrestriction: "checkglobalrestriction",
@@ -379,7 +379,7 @@ Examples:
 Clear all banned IPs.
 
 Examples:
-> telestai-cli clearbanned 
+> meowcoin-cli clearbanned 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   clearbanned: "clearbanned",
@@ -389,7 +389,7 @@ Examples:
 Removes all transaction from the mempool
 
 Examples:
-> telestai-cli clearmempool 
+> meowcoin-cli clearmempool 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearmempool", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   clearmempool: "clearmempool",
@@ -403,7 +403,7 @@ Result:[
 ]
 
 Examples:
-> telestai-cli clearmessages 
+> meowcoin-cli clearmessages 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearmessages", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   clearmessages: "clearmessages",
@@ -424,7 +424,7 @@ Result:
 "hex"            (string) The hex-encoded raw transaction with signature(s)
 
 Examples:
-> telestai-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
+> meowcoin-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
 **/
   combinerawtransaction: "combinerawtransaction",
 
@@ -450,7 +450,7 @@ Result:
 Examples:
 
 Create a multisig address from 2 addresses
-> telestai-cli createmultisig 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
+> meowcoin-cli createmultisig 2 "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createmultisig", "params": [2, "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -692,14 +692,14 @@ Result:
 "transaction"              (string) hex string of the transaction
 
 Examples:
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"address\":0.01}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"data\":\"00010203\"}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueAssetXXXXXXXXXXXXXXXXZ9zEc4\":500,\"change_address\":change_amount,\"issuer_address\":{\"issue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":1000000,\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueRestrictedXXXXXXXXXXXZDsDr5\":1500,\"change_address\":change_amount,\"issuer_address\":{\"issue_restricted\":{\"asset_name\":\"$MYASSET\",\"asset_quantity\":1000000,\"verifier_string\":\"#TAG & !KYC\",\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueUniqueAssetXXXXXXXXXXSZ94He\":20,\"change_address\":change_amount,\"issuer_address\":{\"issue_unique\":{\"root_name\":\"MYASSET\",\"asset_tags\":[\"ALPHA\",\"BETA\"],\"ipfs_hashes\":[\"43f81c6f2c0593bde5a85e09ae662816eca80797\",\"43f81c6f2c0593bde5a85e09ae662816eca80797\"]}}}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transfer\":{\"MYASSET\":50}}}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transferwithmessage\":{\"MYASSET\":50,\"message\":\"hash\",\"expire_time\": utc_time}}}"
-> telestai-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myownership\",\"vout\":0}]" "{\"issuer_address\":{\"reissue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":2000000}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"address\":0.01}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"data\":\"00010203\"}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueAssetXXXXXXXXXXXXXXXXZ9zEc4\":500,\"change_address\":change_amount,\"issuer_address\":{\"issue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":1000000,\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueRestrictedXXXXXXXXXXXZDsDr5\":1500,\"change_address\":change_amount,\"issuer_address\":{\"issue_restricted\":{\"asset_name\":\"$MYASSET\",\"asset_quantity\":1000000,\"verifier_string\":\"#TAG & !KYC\",\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"ToissueUniqueAssetXXXXXXXXXXSZ94He\":20,\"change_address\":change_amount,\"issuer_address\":{\"issue_unique\":{\"root_name\":\"MYASSET\",\"asset_tags\":[\"ALPHA\",\"BETA\"],\"ipfs_hashes\":[\"43f81c6f2c0593bde5a85e09ae662816eca80797\",\"43f81c6f2c0593bde5a85e09ae662816eca80797\"]}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transfer\":{\"MYASSET\":50}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transferwithmessage\":{\"MYASSET\":50,\"message\":\"hash\",\"expire_time\": utc_time}}}"
+> meowcoin-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myownership\",\"vout\":0}]" "{\"issuer_address\":{\"reissue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":2000000}}}"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createrawtransaction", "params": ["[{\"txid\":\"mycoin\",\"vout\":0}]", "{\"data\":\"00010203\"}"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   createrawtransaction: "createrawtransaction",
@@ -729,7 +729,7 @@ Result:
 }
 
 Examples:
-> telestai-cli decodeblock "xxxx"
+> meowcoin-cli decodeblock "xxxx"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodeblock", "params": ["xxxx"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   decodeblock: "decodeblock",
@@ -787,7 +787,7 @@ Result:
 }
 
 Examples:
-> telestai-cli decoderawtransaction "hexstring"
+> meowcoin-cli decoderawtransaction "hexstring"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   decoderawtransaction: "decoderawtransaction",
@@ -826,7 +826,7 @@ Result:
 }
 
 Examples:
-> telestai-cli decodescript "hexstring"
+> meowcoin-cli decodescript "hexstring"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodescript", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   decodescript: "decodescript",
@@ -844,8 +844,8 @@ Arguments:
 2. "nodeid"      (number, optional) The node ID (see getpeerinfo for node IDs)
 
 Examples:
-> telestai-cli disconnectnode "192.168.0.6:8767"
-> telestai-cli disconnectnode "" 1
+> meowcoin-cli disconnectnode "192.168.0.6:8767"
+> meowcoin-cli disconnectnode "" 1
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["192.168.0.6:8767"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
@@ -882,8 +882,8 @@ Result:
 }
 
 Examples:
-> telestai-cli distributereward "TRONCO" 12345 "TLS" 1000
-> telestai-cli distributereward "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
+> meowcoin-cli distributereward "TRONCO" 12345 "TLS" 1000
+> meowcoin-cli distributereward "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "distributereward", "params": ["TRONCO" 34987 "DIVIDENDS" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "distributereward", "params": ["PHATSTACKS" 34987 "TLS" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
@@ -901,8 +901,8 @@ Result:
 "key"                (string) The private key
 
 Examples:
-> telestai-cli dumpprivkey "myaddress"
-> telestai-cli importprivkey "mykey"
+> meowcoin-cli dumpprivkey "myaddress"
+> meowcoin-cli importprivkey "mykey"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpprivkey", "params": ["myaddress"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   dumpprivkey: "dumpprivkey",
@@ -920,7 +920,7 @@ Result:
 }
 
 Examples:
-> telestai-cli dumpwallet "test"
+> meowcoin-cli dumpwallet "test"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   dumpwallet: "dumpwallet",
@@ -940,16 +940,16 @@ Arguments:
 Examples:
 
 Encrypt your wallet
-> telestai-cli encryptwallet "my pass phrase"
+> meowcoin-cli encryptwallet "my pass phrase"
 
 Now set the passphrase to use the wallet, such as for signing or sending raven
-> telestai-cli walletpassphrase "my pass phrase"
+> meowcoin-cli walletpassphrase "my pass phrase"
 
 Now we can do something like sign
-> telestai-cli signmessage "address" "test message"
+> meowcoin-cli signmessage "address" "test message"
 
 Now lock the wallet again by removing the passphrase
-> telestai-cli walletlock 
+> meowcoin-cli walletlock 
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["my pass phrase"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -975,7 +975,7 @@ have been observed to make an estimate.
 a fee that is high enough to get reliably included in the next block.
 
 Example:
-> telestai-cli estimatefee 6
+> meowcoin-cli estimatefee 6
 **/
   estimatefee: "estimatefee",
 
@@ -1011,7 +1011,7 @@ An error is returned if not enough transactions and blocks
 have been observed to make an estimate for any number of blocks.
 
 Example:
-> telestai-cli estimatesmartfee 6
+> meowcoin-cli estimatesmartfee 6
 **/
   estimatesmartfee: "estimatesmartfee",
 
@@ -1029,9 +1029,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli freezeaddress "$RESTRICTED_ASSET" "address"
+> meowcoin-cli freezeaddress "$RESTRICTED_ASSET" "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezeaddress", "params": ["$RESTRICTED_ASSET" "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli freezeaddress "$RESTRICTED_ASSET" "address" "change_address"
+> meowcoin-cli freezeaddress "$RESTRICTED_ASSET" "address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezeaddress", "params": ["$RESTRICTED_ASSET" "address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   freezeaddress: "freezeaddress",
@@ -1049,9 +1049,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli freezerestrictedasset "$RESTRICTED_ASSET"
+> meowcoin-cli freezerestrictedasset "$RESTRICTED_ASSET"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezerestrictedasset", "params": ["$RESTRICTED_ASSET"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli freezerestrictedasset "$RESTRICTED_ASSET" "change_address"
+> meowcoin-cli freezerestrictedasset "$RESTRICTED_ASSET" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "freezerestrictedasset", "params": ["$RESTRICTED_ASSET" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   freezerestrictedasset: "freezerestrictedasset",
@@ -1103,16 +1103,16 @@ Result:
 Examples:
 
 Create a transaction with no inputs
-> telestai-cli createrawtransaction "[]" "{\"myaddress\":0.01}"
+> meowcoin-cli createrawtransaction "[]" "{\"myaddress\":0.01}"
 
 Add sufficient unsigned inputs to meet the output value
-> telestai-cli fundrawtransaction "rawtransactionhex"
+> meowcoin-cli fundrawtransaction "rawtransactionhex"
 
 Sign the transaction
-> telestai-cli signrawtransaction "fundedtransactionhex"
+> meowcoin-cli signrawtransaction "fundedtransactionhex"
 
 Send the transaction
-> telestai-cli sendrawtransaction "signedtransactionhex"
+> meowcoin-cli sendrawtransaction "signedtransactionhex"
 **/
   fundrawtransaction: "fundrawtransaction",
 
@@ -1130,7 +1130,7 @@ Result:
 Examples:
 
 Generate 11 blocks
-> telestai-cli generate 11
+> meowcoin-cli generate 11
 **/
   generate: "generate",
 
@@ -1149,7 +1149,7 @@ Result:
 Examples:
 
 Generate 11 blocks to myaddress
-> telestai-cli generatetoaddress 11 "myaddress"
+> meowcoin-cli generatetoaddress 11 "myaddress"
 **/
   generatetoaddress: "generatetoaddress",
 
@@ -1164,14 +1164,14 @@ Result:
 "accountname"        (string) the account address
 
 Examples:
-> telestai-cli getaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+> meowcoin-cli getaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaccount", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaccount: "getaccount",
 
   /** getaccountaddress "account"
 
-DEPRECATED. Returns the current Telestai address for receiving payments to this account.
+DEPRECATED. Returns the current Meowcoin address for receiving payments to this account.
 
 Arguments:
 1. "account"       (string, required) The account name for the address. It can also be set to the empty string "" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.
@@ -1180,9 +1180,9 @@ Result:
 "address"          (string) The account raven address
 
 Examples:
-> telestai-cli getaccountaddress 
-> telestai-cli getaccountaddress ""
-> telestai-cli getaccountaddress "myaccount"
+> meowcoin-cli getaccountaddress 
+> meowcoin-cli getaccountaddress ""
+> meowcoin-cli getaccountaddress "myaccount"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaccountaddress", "params": ["myaccount"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaccountaddress: "getaccountaddress",
@@ -1211,7 +1211,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli getaddednodeinfo "192.168.0.201"
+> meowcoin-cli getaddednodeinfo "192.168.0.201"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": ["192.168.0.201"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddednodeinfo: "getaddednodeinfo",
@@ -1239,15 +1239,15 @@ Result:
 OR
 [
   {
-    "assetName"  (string) The asset associated with the balance (TLS for Telestai)
+    "assetName"  (string) The asset associated with the balance (TLS for Meowcoin)
     "balance"  (string) The current balance in satoshis
     "received"  (string) The total number of satoshis received (including change)
   },...
 
 ]
 Examples:
-> telestai-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
-> telestai-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> meowcoin-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> meowcoin-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
@@ -1273,7 +1273,7 @@ Arguments:
 Result:
 [
   {
-    "assetName"  (string) The asset associated with the deltas (TLS for Telestai)
+    "assetName"  (string) The asset associated with the deltas (TLS for Meowcoin)
     "satoshis"  (number) The difference of satoshis
     "txid"  (string) The related txid
     "index"  (number) The related input or output index
@@ -1283,9 +1283,9 @@ Result:
 ]
 
 Examples:
-> telestai-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> meowcoin-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> meowcoin-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddressdeltas: "getaddressdeltas",
@@ -1304,7 +1304,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli getaddressesbyaccount "tabby"
+> meowcoin-cli getaddressesbyaccount "tabby"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddressesbyaccount: "getaddressesbyaccount",
@@ -1327,7 +1327,7 @@ Result:
 [
   {
     "address"  (string) The base58check encoded address
-    "assetName"  (string) The name of the associated asset (TLS for Telestai)
+    "assetName"  (string) The name of the associated asset (TLS for Meowcoin)
     "txid"  (string) The related txid
     "index"  (number) The related input or output index
     "satoshis"  (number) The difference of satoshis
@@ -1338,9 +1338,9 @@ Result:
 ]
 
 Examples:
-> telestai-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> meowcoin-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> meowcoin-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddressmempool: "getaddressmempool",
@@ -1368,9 +1368,9 @@ Result:
 ]
 
 Examples:
-> telestai-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> meowcoin-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> meowcoin-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddresstxids: "getaddresstxids",
@@ -1394,7 +1394,7 @@ Result
 [
   {
     "address"  (string) The address base58check encoded
-    "assetName" (string) The asset associated with the UTXOs (TLS for Telestai)
+    "assetName" (string) The asset associated with the UTXOs (TLS for Meowcoin)
     "txid"  (string) The output txid
     "height"  (number) The block height
     "outputIndex"  (number) The output index
@@ -1404,9 +1404,9 @@ Result
 ]
 
 Examples:
-> telestai-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> meowcoin-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> meowcoin-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getaddressutxos: "getaddressutxos",
@@ -1431,7 +1431,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getassetdata "ASSET_NAME"
+> meowcoin-cli getassetdata "ASSET_NAME"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getassetdata", "params": ["ASSET_NAME"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getassetdata: "getassetdata",
@@ -1465,10 +1465,10 @@ amount              (numeric) The total amount in TLS received for this account.
 Examples:
 
 The total amount in the wallet with 1 or more confirmations
-> telestai-cli getbalance 
+> meowcoin-cli getbalance 
 
 The total amount in the wallet at least 6 blocks confirmed
-> telestai-cli getbalance "*" 6
+> meowcoin-cli getbalance "*" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["*", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -1483,7 +1483,7 @@ Result:
 "hex"      (string) the block hash hex encoded
 
 Examples:
-> telestai-cli getbestblockhash 
+> meowcoin-cli getbestblockhash 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getbestblockhash: "getbestblockhash",
@@ -1536,7 +1536,7 @@ Result (for verbosity = 2):
 }
 
 Examples:
-> telestai-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> meowcoin-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblock", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblock: "getblock",
@@ -1588,7 +1588,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getblockchaininfo 
+> meowcoin-cli getblockchaininfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblockchaininfo: "getblockchaininfo",
@@ -1601,7 +1601,7 @@ Result:
 n    (numeric) The current block count
 
 Examples:
-> telestai-cli getblockcount 
+> meowcoin-cli getblockcount 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblockcount: "getblockcount",
@@ -1617,7 +1617,7 @@ Result:
 "hash"         (string) The block hash
 
 Examples:
-> telestai-cli getblockhash 1000
+> meowcoin-cli getblockhash 1000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblockhash: "getblockhash",
@@ -1647,9 +1647,9 @@ Result:
 ]
 
 Examples:
-> telestai-cli getblockhashes 1231614698 1231024505
+> meowcoin-cli getblockhashes 1231614698 1231024505
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhashes", "params": [1231614698, 1231024505] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getblockhashes 1231614698 1231024505 '{"noOrphans":false, "logicalTimes":true}'
+> meowcoin-cli getblockhashes 1231614698 1231024505 '{"noOrphans":false, "logicalTimes":true}'
 **/
   getblockhashes: "getblockhashes",
 
@@ -1684,7 +1684,7 @@ Result (for verbose=false):
 "data"             (string) A string that is serialized, hex-encoded data for block 'hash'.
 
 Examples:
-> telestai-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> meowcoin-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblockheader: "getblockheader",
@@ -1761,7 +1761,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getblocktemplate 
+> meowcoin-cli getblocktemplate 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getblocktemplate: "getblocktemplate",
@@ -1783,7 +1783,7 @@ Result:
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getcacheinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli getcacheinfo 
+> meowcoin-cli getcacheinfo 
 **/
   getcacheinfo: "getcacheinfo",
 
@@ -1813,7 +1813,7 @@ Possible values for status:
 5.  "active"                This is the tip of the active main chain, which is certainly valid
 
 Examples:
-> telestai-cli getchaintips 
+> meowcoin-cli getchaintips 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintips", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getchaintips: "getchaintips",
@@ -1837,7 +1837,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getchaintxstats 
+> meowcoin-cli getchaintxstats 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [2016] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getchaintxstats: "getchaintxstats",
@@ -1850,7 +1850,7 @@ Result:
 n          (numeric) The connection count
 
 Examples:
-> telestai-cli getconnectioncount 
+> meowcoin-cli getconnectioncount 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getconnectioncount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getconnectioncount: "getconnectioncount",
@@ -1863,7 +1863,7 @@ Result:
 n.nnn       (numeric) the proof-of-work difficulty as a multiple of the minimum difficulty.
 
 Examples:
-> telestai-cli getdifficulty 
+> meowcoin-cli getdifficulty 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getdifficulty: "getdifficulty",
@@ -1880,8 +1880,8 @@ Arguments:
 5. "exception_addresses"        (string, optional) Ownership addresses that should be excluded
 
 Examples:
-> telestai-cli getdistributestatus "TRONCO" 12345 "TLS" 1000
-> telestai-cli getdistributestatus "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
+> meowcoin-cli getdistributestatus "TRONCO" 12345 "TLS" 1000
+> meowcoin-cli getdistributestatus "PHATSTACKS" 12345 "DIVIDENDS" 1000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdistributestatus", "params": ["TRONCO" 34987 "DIVIDENDS" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdistributestatus", "params": ["PHATSTACKS" 34987 "TLS" 100000 "mwN7xC3yomYdvJuVXkVC7ymY9wNBjWNduD,n4Rf18edydDaRBh7t6gHUbuByLbWEoWUTg"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
@@ -1897,7 +1897,7 @@ Result
 true|false      (boolean) If the server is set to generate coins or not
 
 Examples:
-> telestai-cli getgenerate 
+> meowcoin-cli getgenerate 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getgenerate", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getgenerate: "getgenerate",
@@ -1912,7 +1912,7 @@ Result:
   "version": xxxxx,           (numeric) the server version
   "protocolversion": xxxxx,   (numeric) the protocol version
   "walletversion": xxxxx,     (numeric) the wallet version
-  "balance": xxxxxxx,         (numeric) the total Telestai balance of the wallet
+  "balance": xxxxxxx,         (numeric) the total Meowcoin balance of the wallet
   "blocks": xxxxxx,           (numeric) the current number of blocks processed in the server
   "timeoffset": xxxxx,        (numeric) the time offset
   "connections": xxxxx,       (numeric) the number of connections
@@ -1928,7 +1928,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getinfo 
+> meowcoin-cli getinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getinfo: "getinfo",
@@ -1947,7 +1947,7 @@ Arguments
 Result:
 
 Examples:
-> telestai-cli getkawpowhash "header_hash" "mix_hash" "0x100000" 2456
+> meowcoin-cli getkawpowhash "header_hash" "mix_hash" "0x100000" 2456
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getkawpowhash", "params": ["header_hash" "mix_hash" "0x100000" 2456] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getkawpowhash: "getkawpowhash",
@@ -1966,7 +1966,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getmasterkeyinfo 
+> meowcoin-cli getmasterkeyinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmasterkeyinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmasterkeyinfo: "getmasterkeyinfo",
@@ -1994,7 +1994,7 @@ Result (mode "mallocinfo"):
 "<malloc version="1">..."
 
 Examples:
-> telestai-cli getmemoryinfo 
+> meowcoin-cli getmemoryinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmemoryinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmemoryinfo: "getmemoryinfo",
@@ -2035,7 +2035,7 @@ Result (for verbose=true):
 }
 
 Examples:
-> telestai-cli getmempoolancestors "mytxid"
+> meowcoin-cli getmempoolancestors "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolancestors", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmempoolancestors: "getmempoolancestors",
@@ -2076,7 +2076,7 @@ Result (for verbose=true):
 }
 
 Examples:
-> telestai-cli getmempooldescendants "mytxid"
+> meowcoin-cli getmempooldescendants "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempooldescendants", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmempooldescendants: "getmempooldescendants",
@@ -2108,7 +2108,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getmempoolentry "mytxid"
+> meowcoin-cli getmempoolentry "mytxid"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmempoolentry: "getmempoolentry",
@@ -2127,7 +2127,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getmempoolinfo 
+> meowcoin-cli getmempoolinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmempoolinfo: "getmempoolinfo",
@@ -2150,7 +2150,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getmininginfo 
+> meowcoin-cli getmininginfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmininginfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmininginfo: "getmininginfo",
@@ -2165,7 +2165,7 @@ Result:
 "passphrase:"    (optional) Only show if passphrase was used when creating the wallet
 
 Examples:
-> telestai-cli getmywords 
+> meowcoin-cli getmywords 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmywords", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getmywords: "getmywords",
@@ -2192,7 +2192,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getnettotals 
+> meowcoin-cli getnettotals 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnettotals", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getnettotals: "getnettotals",
@@ -2211,7 +2211,7 @@ Result:
 x             (numeric) Hashes per second estimated
 
 Examples:
-> telestai-cli getnetworkhashps 
+> meowcoin-cli getnetworkhashps 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getnetworkhashps: "getnetworkhashps",
@@ -2253,14 +2253,14 @@ Result:
 }
 
 Examples:
-> telestai-cli getnetworkinfo 
+> meowcoin-cli getnetworkinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getnetworkinfo: "getnetworkinfo",
 
   /** getnewaddress ( "account" )
 
-Returns a new Telestai address for receiving payments.
+Returns a new Meowcoin address for receiving payments.
 If 'account' is specified (DEPRECATED), it is added to the address book 
 so payments received with the address will be credited to 'account'.
 
@@ -2271,7 +2271,7 @@ Result:
 "address"    (string) The new raven address
 
 Examples:
-> telestai-cli getnewaddress 
+> meowcoin-cli getnewaddress 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getnewaddress: "getnewaddress",
@@ -2324,21 +2324,21 @@ Result:
 ]
 
 Examples:
-> telestai-cli getpeerinfo 
+> meowcoin-cli getpeerinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getpeerinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getpeerinfo: "getpeerinfo",
 
   /** getrawchangeaddress
 
-Returns a new Telestai address, for receiving change.
+Returns a new Meowcoin address, for receiving change.
 This is for use with raw transactions, NOT normal use.
 
 Result:
 "address"    (string) The address
 
 Examples:
-> telestai-cli getrawchangeaddress 
+> meowcoin-cli getrawchangeaddress 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawchangeaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getrawchangeaddress: "getrawchangeaddress",
@@ -2380,7 +2380,7 @@ Result: (for verbose = true):
 }
 
 Examples:
-> telestai-cli getrawmempool true
+> meowcoin-cli getrawmempool true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getrawmempool: "getrawmempool",
@@ -2449,8 +2449,8 @@ Result (if verbose is set to true):
 }
 
 Examples:
-> telestai-cli getrawtransaction "mytxid"
-> telestai-cli getrawtransaction "mytxid" true
+> meowcoin-cli getrawtransaction "mytxid"
+> meowcoin-cli getrawtransaction "mytxid" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawtransaction", "params": ["mytxid", true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getrawtransaction: "getrawtransaction",
@@ -2469,13 +2469,13 @@ amount              (numeric) The total amount in TLS received for this account.
 Examples:
 
 Amount received by the default account with at least 1 confirmation
-> telestai-cli getreceivedbyaccount ""
+> meowcoin-cli getreceivedbyaccount ""
 
 Amount received at the tabby account including unconfirmed amounts with zero confirmations
-> telestai-cli getreceivedbyaccount "tabby" 0
+> meowcoin-cli getreceivedbyaccount "tabby" 0
 
 The amount with at least 6 confirmations
-> telestai-cli getreceivedbyaccount "tabby" 6
+> meowcoin-cli getreceivedbyaccount "tabby" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaccount", "params": ["tabby", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2496,13 +2496,13 @@ amount   (numeric) The total amount in TLS received at this address.
 Examples:
 
 The amount from transactions with at least 1 confirmation
-> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+> meowcoin-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
 
 The amount including unconfirmed transactions, zero confirmations
-> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 0
+> meowcoin-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 0
 
 The amount with at least 6 confirmations
-> telestai-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 6
+> meowcoin-cli getreceivedbyaddress "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" 6
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaddress", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2522,7 +2522,7 @@ Result:
    },...
   ],
 }
-> telestai-cli getrpcinfo 
+> meowcoin-cli getrpcinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrpcinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getrpcinfo: "getrpcinfo",
@@ -2566,7 +2566,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getsnapshotrequest "TRONCO" 12345
+> meowcoin-cli getsnapshotrequest "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getsnapshotrequest", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getsnapshotrequest: "getsnapshotrequest",
@@ -2589,7 +2589,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getspentinfo '{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}'
+> meowcoin-cli getspentinfo '{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getspentinfo", "params": [{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getspentinfo: "getspentinfo",
@@ -2646,8 +2646,8 @@ Result:
 }
 
 Examples:
-> telestai-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
-> telestai-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
+> meowcoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+> meowcoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   gettransaction: "gettransaction",
@@ -2682,10 +2682,10 @@ Result:
 Examples:
 
 Get unspent transactions
-> telestai-cli listunspent 
+> meowcoin-cli listunspent 
 
 View the details
-> telestai-cli gettxout "txid" 1
+> meowcoin-cli gettxout "txid" 1
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxout", "params": ["txid", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2732,7 +2732,7 @@ Result:
 }
 
 Examples:
-> telestai-cli gettxoutsetinfo 
+> meowcoin-cli gettxoutsetinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxoutsetinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   gettxoutsetinfo: "gettxoutsetinfo",
@@ -2753,7 +2753,7 @@ Result:
 "verifier_string", (string) The verifier for the asset
 
 Examples:
-> telestai-cli getverifierstring "restricted_name"
+> meowcoin-cli getverifierstring "restricted_name"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getverifierstring", "params": ["restricted_name"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getverifierstring: "getverifierstring",
@@ -2779,7 +2779,7 @@ Result:
 }
 
 Examples:
-> telestai-cli getwalletinfo 
+> meowcoin-cli getwalletinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   getwalletinfo: "getwalletinfo",
@@ -2815,10 +2815,10 @@ as change, and not show up in many RPCs.
 Examples:
 
 Import a script with rescan
-> telestai-cli importaddress "myscript"
+> meowcoin-cli importaddress "myscript"
 
 Import using a label without rescan
-> telestai-cli importaddress "myscript" "testing" false
+> meowcoin-cli importaddress "myscript" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myscript", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2855,8 +2855,8 @@ Arguments:
   }
 
 Examples:
-> telestai-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }, { "scriptPubKey": { "address": "<my 2nd address>" }, "label": "example 2", "timestamp": 1455191480 }]'
-> telestai-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }]' '{ "rescan": false}'
+> meowcoin-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }, { "scriptPubKey": { "address": "<my 2nd address>" }, "label": "example 2", "timestamp": 1455191480 }]'
+> meowcoin-cli importmulti '[{ "scriptPubKey": { "address": "<my address>" }, "timestamp":1455191478 }]' '{ "rescan": false}'
 
 Response is an array with the same size as the input that has the execution result :
   [{ "success": true } , { "success": false, "error": { "code": -1, "message": "Internal Server Error"} }, ... ]
@@ -2877,16 +2877,16 @@ Note: This call can take minutes to complete if rescan is true.
 Examples:
 
 Dump a private key
-> telestai-cli dumpprivkey "myaddress"
+> meowcoin-cli dumpprivkey "myaddress"
 
 Import the private key with rescan
-> telestai-cli importprivkey "mykey"
+> meowcoin-cli importprivkey "mykey"
 
 Import using a label and without rescan
-> telestai-cli importprivkey "mykey" "testing" false
+> meowcoin-cli importprivkey "mykey" "testing" false
 
 Import using default blank label and without rescan
-> telestai-cli importprivkey "mykey" "" false
+> meowcoin-cli importprivkey "mykey" "" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2917,10 +2917,10 @@ Note: This call can take minutes to complete if rescan is true.
 Examples:
 
 Import a public key with rescan
-> telestai-cli importpubkey "mypubkey"
+> meowcoin-cli importpubkey "mypubkey"
 
 Import using a label without rescan
-> telestai-cli importpubkey "mypubkey" "testing" false
+> meowcoin-cli importpubkey "mypubkey" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importpubkey", "params": ["mypubkey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2937,10 +2937,10 @@ Arguments:
 Examples:
 
 Dump the wallet
-> telestai-cli dumpwallet "test"
+> meowcoin-cli dumpwallet "test"
 
 Import the wallet
-> telestai-cli importwallet "test"
+> meowcoin-cli importwallet "test"
 
 Import using the json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -2969,13 +2969,13 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli issue "ASSET_NAME" 1000
-> telestai-cli issue "ASSET_NAME" 1000 "myaddress"
-> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 4
-> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 2 true
-> telestai-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 8 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
-> telestai-cli issue "ASSET_NAME/SUB_ASSET" 1000 "myaddress" "changeaddress" 2 true
-> telestai-cli issue "ASSET_NAME#uniquetag"
+> meowcoin-cli issue "ASSET_NAME" 1000
+> meowcoin-cli issue "ASSET_NAME" 1000 "myaddress"
+> meowcoin-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 4
+> meowcoin-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 2 true
+> meowcoin-cli issue "ASSET_NAME" 1000 "myaddress" "changeaddress" 8 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> meowcoin-cli issue "ASSET_NAME/SUB_ASSET" 1000 "myaddress" "changeaddress" 2 true
+> meowcoin-cli issue "ASSET_NAME#uniquetag"
 **/
   issue: "issue",
 
@@ -3000,13 +3000,13 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli issuequalifierasset "#ASSET_NAME" 1000
-> telestai-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress"
-> telestai-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress"
-> telestai-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress" "changeaddress"
-> telestai-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress" true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
-> telestai-cli issuequalifierasset "ASSET_NAME/SUB_QUALIFIER" 1000 "myaddress" "changeaddress"
-> telestai-cli issuequalifierasset "#ASSET_NAME"
+> meowcoin-cli issuequalifierasset "#ASSET_NAME" 1000
+> meowcoin-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress"
+> meowcoin-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress"
+> meowcoin-cli issuequalifierasset "ASSET_NAME" 1000 "myaddress" "changeaddress"
+> meowcoin-cli issuequalifierasset "#ASSET_NAME" 1000 "myaddress" "changeaddress" true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> meowcoin-cli issuequalifierasset "ASSET_NAME/SUB_QUALIFIER" 1000 "myaddress" "changeaddress"
+> meowcoin-cli issuequalifierasset "#ASSET_NAME"
 **/
   issuequalifierasset: "issuequalifierasset",
 
@@ -3032,11 +3032,11 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
-> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
-> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 5
-> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 8 true
-> telestai-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 0 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> meowcoin-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
+> meowcoin-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress"
+> meowcoin-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 5
+> meowcoin-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 8 true
+> meowcoin-cli issuerestrictedasset "$ASSET_NAME" 1000 "#KYC & !#AML" "myaddress" "changeaddress" 0 false true QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
 **/
   issuerestrictedasset: "issuerestrictedasset",
 
@@ -3059,8 +3059,8 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli issueunique "MY_ASSET" '["primo","secundo"]'
-> telestai-cli issueunique "MY_ASSET" '["primo","secundo"]' '["first_hash","second_hash"]'
+> meowcoin-cli issueunique "MY_ASSET" '["primo","secundo"]'
+> meowcoin-cli issueunique "MY_ASSET" '["primo","secundo"]' '["first_hash","second_hash"]'
 **/
   issueunique: "issueunique",
 
@@ -3075,7 +3075,7 @@ Result:
 "xxxxxxx", (string) If the verifier string is valid, and the reason
 
 Examples:
-> telestai-cli isvalidverifierstring "verifier_string"
+> meowcoin-cli isvalidverifierstring "verifier_string"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "isvalidverifierstring", "params": ["verifier_string"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   isvalidverifierstring: "isvalidverifierstring",
@@ -3088,7 +3088,7 @@ Arguments
 1. newsize     (numeric, optional, default=100) The new keypool size
 
 Examples:
-> telestai-cli keypoolrefill 
+> meowcoin-cli keypoolrefill 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "keypoolrefill", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   keypoolrefill: "keypoolrefill",
@@ -3110,13 +3110,13 @@ Result:
 Examples:
 
 List account balances where there at least 1 confirmation
-> telestai-cli listaccounts 
+> meowcoin-cli listaccounts 
 
 List account balances including zero confirmation transactions
-> telestai-cli listaccounts 0
+> meowcoin-cli listaccounts 0
 
 List account balances for 6 or more confirmations
-> telestai-cli listaccounts 6
+> meowcoin-cli listaccounts 6
 
 As json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaccounts", "params": [6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3139,9 +3139,9 @@ Result:
 ]
 
 Examples:
-> telestai-cli listaddressesbyasset "ASSET_NAME" false 2 0
-> telestai-cli listaddressesbyasset "ASSET_NAME" true
-> telestai-cli listaddressesbyasset "ASSET_NAME"
+> meowcoin-cli listaddressesbyasset "ASSET_NAME" false 2 0
+> meowcoin-cli listaddressesbyasset "ASSET_NAME" true
+> meowcoin-cli listaddressesbyasset "ASSET_NAME"
 **/
   listaddressesbyasset: "listaddressesbyasset",
 
@@ -3158,7 +3158,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listaddressesfortag "#TAG"
+> meowcoin-cli listaddressesfortag "#TAG"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressesfortag", "params": ["#TAG"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listaddressesfortag: "listaddressesfortag",
@@ -3183,7 +3183,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listaddressgroupings 
+> meowcoin-cli listaddressgroupings 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listaddressgroupings: "listaddressgroupings",
@@ -3201,7 +3201,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listaddressrestrictions "address"
+> meowcoin-cli listaddressrestrictions "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressrestrictions", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listaddressrestrictions: "listaddressrestrictions",
@@ -3223,9 +3223,9 @@ Result:
 }
 
 Examples:
-> telestai-cli listassetbalancesbyaddress "myaddress" false 2 0
-> telestai-cli listassetbalancesbyaddress "myaddress" true
-> telestai-cli listassetbalancesbyaddress "myaddress"
+> meowcoin-cli listassetbalancesbyaddress "myaddress" false 2 0
+> meowcoin-cli listassetbalancesbyaddress "myaddress" true
+> meowcoin-cli listassetbalancesbyaddress "myaddress"
 **/
   listassetbalancesbyaddress: "listassetbalancesbyaddress",
 
@@ -3263,8 +3263,8 @@ Result (verbose=true):
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli listassets ASSET
-> telestai-cli listassets "ASSET*" true 10 20
+> meowcoin-cli listassets ASSET
+> meowcoin-cli listassets "ASSET*" true 10 20
 **/
   listassets: "listassets",
 
@@ -3273,7 +3273,7 @@ Examples:
 List all banned IPs/Subnets.
 
 Examples:
-> telestai-cli listbanned 
+> meowcoin-cli listbanned 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listbanned: "listbanned",
@@ -3288,7 +3288,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listglobalrestrictions 
+> meowcoin-cli listglobalrestrictions 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listglobalrestrictions", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listglobalrestrictions: "listglobalrestrictions",
@@ -3310,16 +3310,16 @@ Result:
 Examples:
 
 List the unspent transactions
-> telestai-cli listunspent 
+> meowcoin-cli listunspent 
 
 Lock an unspent transaction
-> telestai-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> meowcoin-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 List the locked transactions
-> telestai-cli listlockunspent 
+> meowcoin-cli listlockunspent 
 
 Unlock the transaction again
-> telestai-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> meowcoin-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listlockunspent", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3363,9 +3363,9 @@ Result (verbose=true):
 
 Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listmyassets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli listmyassets ASSET
-> telestai-cli listmyassets "ASSET*" true 10 20
-> telestai-cli listmyassets "ASSET*" true 10 20 1
+> meowcoin-cli listmyassets ASSET
+> meowcoin-cli listmyassets "ASSET*" true 10 20
+> meowcoin-cli listmyassets "ASSET*" true 10 20 1
 **/
   listmyassets: "listmyassets",
 
@@ -3391,8 +3391,8 @@ Result:
 ]
 
 Examples:
-> telestai-cli listreceivedbyaccount 
-> telestai-cli listreceivedbyaccount 6 true
+> meowcoin-cli listreceivedbyaccount 
+> meowcoin-cli listreceivedbyaccount 6 true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaccount", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listreceivedbyaccount: "listreceivedbyaccount",
@@ -3424,8 +3424,8 @@ Result:
 ]
 
 Examples:
-> telestai-cli listreceivedbyaddress 
-> telestai-cli listreceivedbyaddress 6 true
+> meowcoin-cli listreceivedbyaddress 
+> meowcoin-cli listreceivedbyaddress 6 true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listreceivedbyaddress: "listreceivedbyaddress",
@@ -3476,8 +3476,8 @@ Result:
 }
 
 Examples:
-> telestai-cli listsinceblock 
-> telestai-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
+> meowcoin-cli listsinceblock 
+> meowcoin-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listsinceblock: "listsinceblock",
@@ -3499,7 +3499,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listsnapshotrequests 
+> meowcoin-cli listsnapshotrequests 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsnapshotrequests", "params": ["TRONCO" 345333] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listsnapshotrequests: "listsnapshotrequests",
@@ -3517,7 +3517,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listtagsforaddress "address"
+> meowcoin-cli listtagsforaddress "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtagsforaddress", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listtagsforaddress: "listtagsforaddress",
@@ -3577,10 +3577,10 @@ Result:
 Examples:
 
 List the most recent 10 transactions in the systems
-> telestai-cli listtransactions 
+> meowcoin-cli listtransactions 
 
 List transactions 100 to 120
-> telestai-cli listtransactions "*" 20 100
+> meowcoin-cli listtransactions "*" 20 100
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3632,10 +3632,10 @@ Result
 ]
 
 Examples
-> telestai-cli listunspent 
-> telestai-cli listunspent 6 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"
+> meowcoin-cli listunspent 
+> meowcoin-cli listunspent 6 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999 "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli listunspent 6 9999999 '[]' true '{ "minimumAmount": 0.005 }'
+> meowcoin-cli listunspent 6 9999999 '[]' true '{ "minimumAmount": 0.005 }'
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999, [] , true, { "minimumAmount": 0.005 } ] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listunspent: "listunspent",
@@ -3651,7 +3651,7 @@ Result:
 ]
 
 Examples:
-> telestai-cli listwallets 
+> meowcoin-cli listwallets 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listwallets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   listwallets: "listwallets",
@@ -3683,16 +3683,16 @@ true|false    (boolean) Whether the command was successful or not
 Examples:
 
 List the unspent transactions
-> telestai-cli listunspent 
+> meowcoin-cli listunspent 
 
 Lock an unspent transaction
-> telestai-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> meowcoin-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 List the locked transactions
-> telestai-cli listlockunspent 
+> meowcoin-cli listlockunspent 
 
 Unlock the transaction again
-> telestai-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+> meowcoin-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "lockunspent", "params": [false, "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3716,10 +3716,10 @@ true|false           (boolean) true if successful.
 Examples:
 
 Move 0.01 TLS from the default account to the account named tabby
-> telestai-cli move "" "tabby" 0.01
+> meowcoin-cli move "" "tabby" 0.01
 
 Move 0.01 TLS timotei to akiko with a comment and funds have 6 confirmations
-> telestai-cli move "timotei" "akiko" 0.01 6 "happy birthday!"
+> meowcoin-cli move "timotei" "akiko" 0.01 6 "happy birthday!"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "move", "params": ["timotei", "akiko", 0.01, 6, "happy birthday!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3733,7 +3733,7 @@ Results provided in getpeerinfo, pingtime and pingwait fields are decimal second
 Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.
 
 Examples:
-> telestai-cli ping 
+> meowcoin-cli ping 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "ping", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   ping: "ping",
@@ -3750,7 +3750,7 @@ Arguments
 Result:
 
 Examples:
-> telestai-cli pprpcsb "header_hash" "mix_hash" 100000
+> meowcoin-cli pprpcsb "header_hash" "mix_hash" 100000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pprpcsb", "params": ["header_hash" "mix_hash" 100000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   pprpcsb: "pprpcsb",
@@ -3769,7 +3769,7 @@ Arguments:
 Result:
 
 Examples:
-> telestai-cli preciousblock "blockhash"
+> meowcoin-cli preciousblock "blockhash"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "preciousblock", "params": ["blockhash"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   preciousblock: "preciousblock",
@@ -3789,7 +3789,7 @@ Result:
 true              (boolean) Returns true
 
 Examples:
-> telestai-cli prioritisetransaction "txid" 0.0 10000
+> meowcoin-cli prioritisetransaction "txid" 0.0 10000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "prioritisetransaction", "params": ["txid", 0.0, 10000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   prioritisetransaction: "prioritisetransaction",
@@ -3804,7 +3804,7 @@ Result:
 n    (numeric) Height of the last block pruned.
 
 Examples:
-> telestai-cli pruneblockchain 1000
+> meowcoin-cli pruneblockchain 1000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pruneblockchain", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   pruneblockchain: "pruneblockchain",
@@ -3824,7 +3824,7 @@ Result:
 }
 
 Examples:
-> telestai-cli purgesnapshot "ASSET_NAME" 28546
+> meowcoin-cli purgesnapshot "ASSET_NAME" 28546
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "purgesnapshot", "params": ["ASSET_NAME" 28546] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   purgesnapshot: "purgesnapshot",
@@ -3847,7 +3847,7 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli reissue "ASSET_NAME" 20 "address"
+> meowcoin-cli reissue "ASSET_NAME" 20 "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "reissue", "params": ["ASSET_NAME" 20 "address" "change_address" "true" 8 "Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   reissue: "reissue",
@@ -3872,11 +3872,11 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML"
-> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" 
-> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress"
-> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress" -1 true
-> telestai-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" false "" "changeaddress" -1 false QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
+> meowcoin-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML"
+> meowcoin-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" 
+> meowcoin-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress"
+> meowcoin-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" true "KYC & !AML" "changeaddress" -1 true
+> meowcoin-cli reissuerestrictedasset "$ASSET_NAME" 1000  "myaddress" false "" "changeaddress" -1 false QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E
 **/
   reissuerestrictedasset: "reissuerestrictedasset",
 
@@ -3888,7 +3888,7 @@ Arguments:
 1. "txid"           (string, required) The hex-encoded id of the transaction you are deleting
 
 Examples:
-> telestai-cli removeprunedfunds "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
+> meowcoin-cli removeprunedfunds "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removeprunedfunds", "params": ["a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -3909,9 +3909,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli removetagfromaddress "#TAG" "to_address"
+> meowcoin-cli removetagfromaddress "#TAG" "to_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removetagfromaddress", "params": ["#TAG" "to_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli removetagfromaddress "#TAG" "to_address" "change_address"
+> meowcoin-cli removetagfromaddress "#TAG" "to_address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removetagfromaddress", "params": ["#TAG" "to_address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   removetagfromaddress: "removetagfromaddress",
@@ -3930,7 +3930,7 @@ Result:
 }
 
 Examples:
-> telestai-cli requestsnapshot "TRONCO" 12345
+> meowcoin-cli requestsnapshot "TRONCO" 12345
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "requestsnapshot", "params": ["PHATSTACKS" 34987] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   requestsnapshot: "requestsnapshot",
@@ -3950,7 +3950,7 @@ Result:
 }
 
 Examples:
-> telestai-cli rescanblockchain 100000 120000
+> meowcoin-cli rescanblockchain 100000 120000
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "rescanblockchain", "params": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   rescanblockchain: "rescanblockchain",
@@ -3960,7 +3960,7 @@ Examples:
 Dumps the mempool to disk.
 
 Examples:
-> telestai-cli savemempool 
+> meowcoin-cli savemempool 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "savemempool", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   savemempool: "savemempool",
@@ -3989,10 +3989,10 @@ Result:
 Examples:
 
 Send 0.01 TLS from the default account to the address, must have at least 1 confirmation
-> telestai-cli sendfrom "" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01
+> meowcoin-cli sendfrom "" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01
 
 Send 0.01 from the tabby account to the given address, funds must have at least 6 confirmations
-> telestai-cli sendfrom "tabby" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01 6 "donation" "seans outpost"
+> meowcoin-cli sendfrom "tabby" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.01 6 "donation" "seans outpost"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfrom", "params": ["tabby", "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.01, 6, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4024,9 +4024,9 @@ Result:
 "txid"                  (string) The transaction id.
 
 Examples:
-> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
-> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
-> telestai-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
+> meowcoin-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> meowcoin-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
+> meowcoin-cli sendfromaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfromaddress", "params": ["1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   sendfromaddress: "sendfromaddress",
@@ -4065,13 +4065,13 @@ Result:
 Examples:
 
 Send two amounts to two different addresses:
-> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}"
+> meowcoin-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}"
 
 Send two amounts to two different addresses setting the confirmation and comment:
-> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 6 "testing"
+> meowcoin-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 6 "testing"
 
 Send two amounts to two different addresses, subtract fee from amount:
-> telestai-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 1 "" "[\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\",\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\"]"
+> meowcoin-cli sendmany "" "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}" 1 "" "[\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\",\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\"]"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}", 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4091,8 +4091,8 @@ txid
 ]
 
 Examples:
-> telestai-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> telestai-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli sendmessage "ASSET_NAME!" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
 **/
   sendmessage: "sendmessage",
 
@@ -4112,12 +4112,12 @@ Result:
 Examples:
 
 Create a transaction
-> telestai-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+> meowcoin-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
 Sign the transaction, and get back the hex
-> telestai-cli signrawtransaction "myhex"
+> meowcoin-cli signrawtransaction "myhex"
 
 Send the transaction (signed hex)
-> telestai-cli sendrawtransaction "signedhex"
+> meowcoin-cli sendrawtransaction "signedhex"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendrawtransaction", "params": ["signedhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4148,9 +4148,9 @@ Result:
 "txid"                  (string) The transaction id.
 
 Examples:
-> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
-> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
-> telestai-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
+> meowcoin-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> meowcoin-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "donation" "seans outpost"
+> meowcoin-cli sendtoaddress "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1 "" "" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendtoaddress", "params": ["1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   sendtoaddress: "sendtoaddress",
@@ -4164,7 +4164,7 @@ Arguments:
 2. "account"         (string, required) The account to assign the address to.
 
 Examples:
-> telestai-cli setaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "tabby"
+> meowcoin-cli setaccount "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "tabby"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setaccount", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   setaccount: "setaccount",
@@ -4180,8 +4180,8 @@ Arguments:
 4. "absolute"     (boolean, optional) If set, the bantime must be an absolute timestamp in seconds since epoch (Jan 1 1970 GMT)
 
 Examples:
-> telestai-cli setban "192.168.0.6" "add" 86400
-> telestai-cli setban "192.168.0.0/24" "add"
+> meowcoin-cli setban "192.168.0.6" "add" 86400
+> meowcoin-cli setban "192.168.0.0/24" "add"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setban", "params": ["192.168.0.6", "add", 86400] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   setban: "setban",
@@ -4199,13 +4199,13 @@ Arguments:
 Examples:
 
 Set the generation on with a limit of one processor
-> telestai-cli setgenerate true 1
+> meowcoin-cli setgenerate true 1
 
 Check the setting
-> telestai-cli getgenerate 
+> meowcoin-cli getgenerate 
 
 Turn off generation
-> telestai-cli setgenerate false
+> meowcoin-cli setgenerate false
 
 Using json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setgenerate", "params": [true, 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4232,7 +4232,7 @@ Result
 true|false        (boolean) Returns true if successful
 
 Examples:
-> telestai-cli settxfee 0.00001
+> meowcoin-cli settxfee 0.00001
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   settxfee: "settxfee",
@@ -4251,13 +4251,13 @@ Result:
 Examples:
 
 Unlock the wallet for 30 seconds
-> telestai-cli walletpassphrase "mypassphrase" 30
+> meowcoin-cli walletpassphrase "mypassphrase" 30
 
 Create the signature
-> telestai-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
+> meowcoin-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
 
 Verify the signature
-> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> meowcoin-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessage", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4278,10 +4278,10 @@ Result:
 Examples:
 
 Create the signature
-> telestai-cli signmessagewithprivkey "privkey" "my message"
+> meowcoin-cli signmessagewithprivkey "privkey" "my message"
 
 Verify the signature
-> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> meowcoin-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessagewithprivkey", "params": ["privkey", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4340,14 +4340,14 @@ Result:
 }
 
 Examples:
-> telestai-cli signrawtransaction "myhex"
+> meowcoin-cli signrawtransaction "myhex"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransaction", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   signrawtransaction: "signrawtransaction",
 
   /** stop
 
-Stop Telestai server.**/
+Stop Meowcoin server.**/
   stop: "stop",
 
   /** submitblock "hexdata"  ( "dummy" )
@@ -4362,7 +4362,7 @@ Arguments
 Result:
 
 Examples:
-> telestai-cli submitblock "mydata"
+> meowcoin-cli submitblock "mydata"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "submitblock", "params": ["mydata"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   submitblock: "submitblock",
@@ -4379,7 +4379,7 @@ Result:[
 ]
 
 Examples:
-> telestai-cli subscribetochannel "ASSET_NAME!"
+> meowcoin-cli subscribetochannel "ASSET_NAME!"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "subscribetochannel", "params": ["ASSET_NAME!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   subscribetochannel: "subscribetochannel",
@@ -4410,12 +4410,12 @@ Result:
 Examples:
 
 Create a transaction
-> telestai-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+> meowcoin-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
 Sign the transaction, and get back the hex
-> telestai-cli signrawtransaction "myhex"
+> meowcoin-cli signrawtransaction "myhex"
 
 Test acceptance of the transaction (signed hex)
-> telestai-cli testmempoolaccept "signedhex"
+> meowcoin-cli testmempoolaccept "signedhex"
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "testmempoolaccept", "params": [["signedhex"]] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4440,8 +4440,8 @@ txid
 ]
 
 Examples:
-> telestai-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> telestai-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli transfer "ASSET_NAME" 20 "address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
 **/
   transfer: "transfer",
 
@@ -4464,7 +4464,7 @@ txid
 ]
 
 Examples:
-> telestai-cli transferfromaddress "ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652
+> meowcoin-cli transferfromaddress "ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "transferfromaddress", "params": ["ASSET_NAME" "fromaddress" 20 "address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E", 156545652] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   transferfromaddress: "transferfromaddress",
@@ -4488,7 +4488,7 @@ txid
 ]
 
 Examples:
-> telestai-cli transferfromaddresses "ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365
+> meowcoin-cli transferfromaddresses "ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "transferfromaddresses", "params": ["ASSET_NAME" '["fromaddress1", "fromaddress2"]' 20 "to_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 154652365] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   transferfromaddresses: "transferfromaddresses",
@@ -4510,8 +4510,8 @@ txid
 ]
 
 Examples:
-> telestai-cli transferqualifier "#QUALIFIER" 20 "to_address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
-> telestai-cli transferqualifier "#QUALIFIER" 20 "to_address" "change_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli transferqualifier "#QUALIFIER" 20 "to_address" "" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
+> meowcoin-cli transferqualifier "#QUALIFIER" 20 "to_address" "change_address" "QmTqu3Lk3gmTsQVtjU7rYYM37EAW4xNmbuEAp2Mjr4AV7E" 15863654
 **/
   transferqualifier: "transferqualifier",
 
@@ -4529,9 +4529,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli unfreezeaddress "$RESTRICTED_ASSET" "address"
+> meowcoin-cli unfreezeaddress "$RESTRICTED_ASSET" "address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezeaddress", "params": ["$RESTRICTED_ASSET" "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli unfreezeaddress "$RESTRICTED_ASSET" "address" "change_address"
+> meowcoin-cli unfreezeaddress "$RESTRICTED_ASSET" "address" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezeaddress", "params": ["$RESTRICTED_ASSET" "address" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   unfreezeaddress: "unfreezeaddress",
@@ -4549,9 +4549,9 @@ Result:
 "txid"                     (string) The transaction id
 
 Examples:
-> telestai-cli unfreezerestrictedasset "$RESTRICTED_ASSET"
+> meowcoin-cli unfreezerestrictedasset "$RESTRICTED_ASSET"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezerestrictedasset", "params": ["$RESTRICTED_ASSET"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
-> telestai-cli unfreezerestrictedasset "$RESTRICTED_ASSET" "change_address"
+> meowcoin-cli unfreezerestrictedasset "$RESTRICTED_ASSET" "change_address"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unfreezerestrictedasset", "params": ["$RESTRICTED_ASSET" "change_address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   unfreezerestrictedasset: "unfreezerestrictedasset",
@@ -4568,7 +4568,7 @@ Result:[
 ]
 
 Examples:
-> telestai-cli unsubscribefromchannel "ASSET_NAME!"
+> meowcoin-cli unsubscribefromchannel "ASSET_NAME!"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unsubscribefromchannel", "params": ["ASSET_NAME!"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   unsubscribefromchannel: "unsubscribefromchannel",
@@ -4581,7 +4581,7 @@ Result:
 ttt        (numeric) The number of seconds that the server has been running
 
 Examples:
-> telestai-cli uptime 
+> meowcoin-cli uptime 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "uptime", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   uptime: "uptime",
@@ -4618,7 +4618,7 @@ Result:
 }
 
 Examples:
-> telestai-cli validateaddress "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
+> meowcoin-cli validateaddress "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "validateaddress", "params": ["1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   validateaddress: "validateaddress",
@@ -4635,7 +4635,7 @@ Result:
 true|false       (boolean) Verified or not
 
 Examples:
-> telestai-cli verifychain 
+> meowcoin-cli verifychain 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifychain", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   verifychain: "verifychain",
@@ -4655,13 +4655,13 @@ true|false   (boolean) If the signature is verified or not.
 Examples:
 
 Unlock the wallet for 30 seconds
-> telestai-cli walletpassphrase "mypassphrase" 30
+> meowcoin-cli walletpassphrase "mypassphrase" 30
 
 Create the signature
-> telestai-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
+> meowcoin-cli signmessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
 
 Verify the signature
-> telestai-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+> meowcoin-cli verifymessage "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
 
 As json rpc
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifymessage", "params": ["1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "signature", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
@@ -4691,7 +4691,7 @@ Result:[
 ]
 
 Examples:
-> telestai-cli viewallmessagechannels 
+> meowcoin-cli viewallmessagechannels 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewallmessagechannels", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   viewallmessagechannels: "viewallmessagechannels",
@@ -4710,7 +4710,7 @@ Result:
 "Expire UTC Time:"                (Date, optional) If the message contains an expire date that is too large, the UTC number will be displayed
 
 Examples:
-> telestai-cli viewallmessages 
+> meowcoin-cli viewallmessages 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewallmessages", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   viewallmessages: "viewallmessages",
@@ -4728,7 +4728,7 @@ Result:
 }...
 
 Examples:
-> telestai-cli viewmyrestrictedaddresses 
+> meowcoin-cli viewmyrestrictedaddresses 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewmyrestrictedaddresses", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   viewmyrestrictedaddresses: "viewmyrestrictedaddresses",
@@ -4746,7 +4746,7 @@ Result:
 }...
 
 Examples:
-> telestai-cli viewmytaggedaddresses 
+> meowcoin-cli viewmytaggedaddresses 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "viewmytaggedaddresses", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
 **/
   viewmytaggedaddresses: "viewmytaggedaddresses",

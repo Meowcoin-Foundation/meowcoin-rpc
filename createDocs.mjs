@@ -43,10 +43,10 @@ export const methods:IMethods ={
   fs.appendFileSync("./docs.ts", result.join(""));
 }
 
-//Create telestai_method.md
+//Create meowcoin_method.md
 {
   const result = [];
-  result.push("# Telestai remote procedure calls/methods");
+  result.push("# Meowcoin remote procedure calls/methods");
   result.push("\r\n[Home](README.md)");
   for (let key of keys) {
     if (!key) {
@@ -57,5 +57,5 @@ export const methods:IMethods ={
     result.push("\r\n## " + key);
     result.push(`\r\n&nbsp;<br/>  ${doc} `);
   }
-  fs.writeFileSync("./telestai_methods.md", result.join(""));
+  fs.writeFileSync("./meowcoin_methods.md", result.join(""));
 }
